@@ -1,0 +1,67 @@
+.hero {
+  display: flex;
+  min-height: 80vh;
+  align-items: center;
+  padding: 0 7rem;
+  .heroText {
+    text-align: left;
+
+    h1 {
+      // position: absolute;
+      width: 363px;
+      height: 1.23;
+      font-family: 'Tiempos Headline', sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 65px;
+      line-height: 1.1;
+      display: flex;
+      align-items: center;
+      color: #ffffff;
+    }
+    .hero-description {
+      max-width: 600px;
+      margin: 30px 0;
+      line-height: 1.4;
+      font-size: 20px;
+      font-weight: 400;
+    }
+
+    .cta-button {
+      border: none;
+      outline: none;
+      color: #fff;
+      background-color: transparent;
+      padding: 10px 30px;
+      border: 1px solid#fff;
+      cursor: pointer;
+    }
+  }
+
+  .heroImage {
+    background: linear-gradient(
+      88.54deg,
+      #000000 -3.96%,
+      rgba(0, 0, 0, 0) 90.53%
+    );
+    position: relative;
+    mix-blend-mode: lighten;
+    transition: visibility 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    .spotlight {
+      position: absolute;
+      top: -300px;
+      right: -180px;
+      opacity: 0.8;
+      visibility: hidden;
+      transform: scale(0.85);
+      transition: all 0.4s ease-in visibility 0.5s
+        cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    &:hover {
+      .spotlight {
+        visibility: visible;
+      }
+    }
+  }
+}

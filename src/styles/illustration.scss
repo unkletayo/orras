@@ -1,0 +1,51 @@
+.Illustration {
+  .Illustration-art {
+    background-image: url('../../public/img/music-bg.png');
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .Illustration-art-img {
+      img {
+        height: 100%;
+        width: 100%;
+        display: none;
+      }
+    }
+  }
+  .Illustration-talents {
+    text-align: center;
+    margin: 100px 0;
+    h2 {
+      font-family: Tiempos Headline;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 36px;
+      line-height: 43px;
+      text-align: center;
+      color: #ffffff;
+    }
+    .talents {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 50px;
+      margin-top: 40px;
+
+      .talent-image {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+      }
+
+      p {
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+}
