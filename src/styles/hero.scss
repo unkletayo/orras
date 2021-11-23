@@ -1,15 +1,20 @@
 .hero {
   display: flex;
-  min-height: 80vh;
+  min-height: 100vh;
   align-items: center;
-  padding: 0 7rem;
+  justify-content: center;
+  padding: 2rem 7rem;
+  width: 100%;
+
+  @include media('<=tablet') {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
   .heroText {
     text-align: left;
-
     h1 {
-      // position: absolute;
-      width: 363px;
-      height: 1.23;
       font-family: 'Tiempos Headline', sans-serif;
       font-style: normal;
       font-weight: normal;
@@ -18,6 +23,11 @@
       display: flex;
       align-items: center;
       color: #ffffff;
+
+      @include media('<=tablet') {
+        font-size: 30px;
+        width: 250px;
+      }
     }
     .hero-description {
       max-width: 600px;
@@ -25,6 +35,10 @@
       line-height: 1.4;
       font-size: 20px;
       font-weight: 400;
+
+      @include media('<=tablet') {
+        font-size: 16px;
+      }
     }
 
     .cta-button {
@@ -35,17 +49,27 @@
       padding: 10px 30px;
       border: 1px solid#fff;
       cursor: pointer;
+      transition: all 0.2s ease-out;
+
+      &:hover {
+        border-bottom: none;
+        box-shadow: inset 0 -5px 0 #fc5185, inset 0 -5px 0 #7b272c;
+      }
     }
   }
 
   .heroImage {
-    background: linear-gradient(
-      88.54deg,
-      #000000 -3.96%,
-      rgba(0, 0, 0, 0) 90.53%
-    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-width: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
     position: relative;
     mix-blend-mode: lighten;
+    min-height: 500px;
+    flex: 1;
     transition: visibility 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     .spotlight {
       position: absolute;
@@ -61,6 +85,45 @@
     &:hover {
       .spotlight {
         visibility: visible;
+      }
+    }
+  }
+  .hero-logo {
+    display: flex;
+    align-content: flex-end;
+    justify-content: center;
+    align-items: center;
+  }
+  .toggles {
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    transform: translate(20px, -50%);
+    @include media('<=tablet') {
+      right: 50px;
+    }
+    .toggle {
+      height: 16px;
+      width: 16px;
+      border: 1px solid #ffffff;
+      margin: 10px 0;
+      border-radius: 50%;
+      position: relative;
+
+      span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        height: 10px;
+        background: transparent;
+        width: 10px;
+        border-radius: 50%;
+
+        &.show {
+          background: white;
+        }
       }
     }
   }

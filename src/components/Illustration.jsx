@@ -18,7 +18,7 @@ const Illustration = () => {
 
         <div className="talents">
           <div>
-            <Image className="talent-image" src={scottGiri} alt="..." />
+            <Image  className="talent-image" src={scottGiri} alt="..." />
             <p>King Bernard</p>
           </div>
           <div>

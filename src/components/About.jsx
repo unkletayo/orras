@@ -28,9 +28,9 @@ const About = () => {
               believe in the talent, determination and a versatility of every
               individual we choose to work with; and that is why we ensure that
               for every client we promote, lasting results are a must.
-              <p className="more">
-                Learn more <Img src={ArrowRight} alt="..." />
-              </p>
+              <span className="more">
+                Learn more <Img className="img" src={ArrowRight} alt="..." />
+              </span>
             </p>
           </div>
         </div>

@@ -18,7 +18,8 @@
   }
   .Illustration-talents {
     text-align: center;
-    margin: 100px 0;
+    margin: 100px 20px;
+
     h2 {
       font-family: Tiempos Headline;
       font-style: normal;
@@ -27,19 +28,22 @@
       line-height: 43px;
       text-align: center;
       color: #ffffff;
+      // max-width: 500px;
     }
     .talents {
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
+      flex-wrap: wrap;
       gap: 50px;
       margin-top: 40px;
 
       .talent-image {
         border-radius: 50%;
-        width: 100px;
-        height: 100px;
+        width: 70px;
+        height: 70px;
+        transform: scale(0.8);
       }
 
       p {

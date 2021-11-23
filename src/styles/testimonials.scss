@@ -1,15 +1,113 @@
 .Testimonials {
+  padding: 100px 50px;
   &-Header {
     text-align: center;
     h2 {
       font-family: 'Tiempos Headline', sans-serif;
       font-style: normal;
+
       font-weight: normal;
       font-size: 36px;
       line-height: 43px;
       text-align: center;
-
       color: #ffffff;
+      padding: 20px 0;
+    }
+  }
+
+  &-feeds {
+    display: grid;
+    grid-template-areas: '. . three . five . seven . .';
+    gap: 10px;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: 1fr;
+
+    @include media('<=tablet') {
+      grid-template-areas:
+        '. three .'
+        'five . seven';
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+    }
+  }
+  &-feed {
+    display: grid;
+    grid-template-areas: '. two . four . six . eight .';
+    gap: 10px;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: 1fr;
+
+    @include media('<=tablet') {
+      grid-template-areas:
+        '. two .'
+        'four . six'
+        '.  eight .';
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+    }
+  }
+  .Testimony {
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    &.two {
+      grid-area: two;
+    }
+
+    &.three {
+      grid-area: three;
+    }
+    &.four {
+      grid-area: four;
+    }
+    &.five {
+      grid-area: five;
+    }
+    &.six {
+      grid-area: six;
+    }
+    &.seven {
+      grid-area: seven;
+    }
+    &.eight {
+      grid-area: eight;
+
+    @include media("<=tablet"){
+      display:none;
+    }
+    }
+
+    &.nine {
+      grid-area: nine;
+    }
+    .Testimony-banner {
+      position: absolute;
+      transform: scale(0.8);
+      right: -10px;
+      bottom: 3px;
+      cursor: pointer;
+    }
+
+    .Testimony-statement {
+      position: absolute;
+      background: #ffffff;
+      border-radius: 30px;
+      font-family: 'Gotham', sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 13px;
+      line-height: 10px;
+      color: #000000;
+      max-width: 150px;
+      top: -5px;
+      right: -130px;
+      padding: 8px 20px;
+
+      .vector {
+        position: absolute;
+        transform: scale(5);
+      }
     }
   }
 }

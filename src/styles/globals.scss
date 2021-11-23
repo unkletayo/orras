@@ -39,11 +39,15 @@ textarea {
 
 @import './breakpoints.scss';
 @import './variables.scss';
+@import './navigation.scss';
 @import './hero.scss';
 @import './about.scss';
 @import './how.scss';
 @import './illustration.scss';
 @import './testimonials.scss';
+@import './slides.scss';
+@import './contact.scss';
+@import './footer.scss';
 
 html,
 body {
@@ -53,6 +57,7 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background-color: $black;
   color: $white;
+  overflow-x: hidden;
 }
 
 a {
