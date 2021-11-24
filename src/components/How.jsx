@@ -5,7 +5,10 @@ const How = () => {
   return (
     <>
       <div className="How">
-        <h2 className="How-header">How We Make The World Listen To You</h2>
+        <div className="hope">
+          <h2 className="How-header">How We Make The World Listen To You</h2>
+          <div className="line"></div>
+        </div>
         <div className="How-cards">
           <div className="How-card">
             <div style={{ height: 40, width: 40 }} className="How-card-logo">

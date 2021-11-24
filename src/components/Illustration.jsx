@@ -14,11 +14,14 @@ const Illustration = () => {
       </div>
 
       <div className="Illustration-talents">
-        <h2>Talents We Have Worked With</h2>
+        <div className="header">
+          <h2>Talents We Have Worked With</h2>
+          <div className="line"></div>
+        </div>
 
         <div className="talents">
           <div>
-            <Image  className="talent-image" src={scottGiri} alt="..." />
+            <Image className="talent-image" src={scottGiri} alt="..." />
             <p>King Bernard</p>
           </div>
           <div>
