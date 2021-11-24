@@ -1,17 +1,28 @@
 .Testimonials {
-  padding: 100px 50px;
+  padding: 100px 20px;
+  min-height: 600px;
+  height: 100%;
   &-Header {
     text-align: center;
+    margin: 100px auto;
+    @include media('<=tablet') {
+      text-align: left;
+    }
     h2 {
       font-family: 'Tiempos Headline', sans-serif;
       font-style: normal;
-
       font-weight: normal;
+      font-size: 36px;
+      line-height: 1.5;
+      text-align: center;
+      color: #ffffff;
       font-size: 36px;
       line-height: 43px;
       text-align: center;
-      color: #ffffff;
-      padding: 20px 0;
+      @include media('<=tablet') {
+        font-size: 7vw;
+        text-align: left;
+      }
     }
   }
 
@@ -73,9 +84,9 @@
     &.eight {
       grid-area: eight;
 
-    @include media("<=tablet"){
-      display:none;
-    }
+      @include media('<=tablet') {
+        display: none;
+      }
     }
 
     &.nine {

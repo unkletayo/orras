@@ -1,6 +1,10 @@
 .About {
   padding: 0 122px;
-  height: 453px;
+  min-height: 453px;
+  height: 100%;
+  @include media('<=tablet') {
+    padding: 0 30px;
+  }
 
   @include media('<=tablet') {
     padding: 0;
@@ -65,7 +69,7 @@
   .About-desc {
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
     .set {
       max-width: 800px;
       display: flex;

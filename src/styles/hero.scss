@@ -9,12 +9,10 @@
   @include media('<=tablet') {
     flex-wrap: wrap;
     justify-content: center;
-    text-align: center;
+    padding: 70px 30px;
   }
 
   .heroText {
-    // text-align: left;
-    min-width: 500px;
     h1 {
       font-family: 'Tiempos Headline', sans-serif;
       font-style: normal;
@@ -27,6 +25,7 @@
       width: 500px;
       @include media('<=tablet') {
         font-size: 30px;
+        line-height: 1.5;
         width: 250px;
       }
     }
@@ -41,48 +40,46 @@
         font-size: 16px;
       }
     }
-
-    .cta-button {
-      border: none;
-      outline: none;
-      color: #fff;
-      background-color: transparent;
-      padding: 10px 30px;
-      border: 1px solid#fff;
-      cursor: pointer;
-      transition: all 0.2s ease-out;
-      position: relative;
-
-      &::after {
-        position: absolute;
-        content: '';
-        bottom: 0px;
-        left: 0px;
-        width: 100%;
-        height: 3px;
-        transform-origin: left;
-        transform: scaleX(0);
-        transition: background 0.4s ease-in;
-        opacity: 1;
-        background-image: url('../../public/img/cta-strip.svg');
-      }
-
-      &:hover {
-        border-bottom: none;
-        &::after {
-          opacity: 0.7;
-          transform: scaleX(1);
-          transition: transform 0.7s cubic-bezier(0.2, 1, 0.3, 1),
-            opacity 0.1s linear;
-        }
-      }
-
-      // &:hover {
-      //   box-shadow: inset 0 -5px 0 #fc5185, inset 0 -5px 0 #7b272c;
-      // }
-    }
   }
+  .cta-button {
+    border: none;
+    outline: none;
+    color: #fff;
+    background-color: transparent;
+    padding: 10px 30px;
+    border: 1px solid#fff;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+    position: relative;
 
+    &::after {
+      position: absolute;
+      content: '';
+      bottom: 0px;
+      left: 0px;
+      width: 100%;
+      height: 3px;
+      transform-origin: left;
+      transform: scaleX(0);
+      transition: background 0.4s ease-in;
+      opacity: 1;
+      background-image: url('../../public/img/cta-strip.svg');
+    }
+
+    &:hover {
+      border-bottom: none;
+      &::after {
+        opacity: 0.7;
+        transform: scaleX(1);
+        transition: transform 0.7s cubic-bezier(0.2, 1, 0.3, 1),
+          opacity 0.1s linear;
+      }
+    }
+
+    // &:hover {
+    //   box-shadow: inset 0 -5px 0 #fc5185, inset 0 -5px 0 #7b272c;
+    // }
+  }
   .heroImage {
     display: flex;
     align-items: center;
@@ -135,7 +132,7 @@
     top: 50%;
     transform: translate(20px, -50%);
     @include media('<=tablet') {
-      right: 50px;
+      // right: 50px;
     }
     .toggle {
       height: 16px;

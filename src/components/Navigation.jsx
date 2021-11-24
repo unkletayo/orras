@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import Logo from '../assets/images/orass-logo.png'
+import Logo from '../../public/img/orass-logo.png'
 import { AiOutlineMenu } from 'react-icons/ai'
 const Navigation = ({ sticky }) => {
   return (

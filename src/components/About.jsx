@@ -1,6 +1,6 @@
 import Img from 'next/image'
 import OrrasWhite from '../../public/img/OrassWhite.png'
-import ArrowRight from '../assets/images/arrow-right.png'
+import ArrowRight from '../../public/img/arrow-right.png'
 const About = () => {
   return (
     <div className="About">

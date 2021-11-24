@@ -1,13 +1,12 @@
 .How {
-  margin-top: 100px;
-  margin-bottom: 10px;
+  min-height: 500px;
+  height: 100%;
   margin-left: auto;
   margin-right: auto;
   display: grid;
   place-items: center;
   max-width: 95%;
-
-  .hope {
+  .How-header {
     position: relative;
     display: flex;
     align-items: center;

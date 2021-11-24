@@ -1,7 +1,7 @@
 import Image from 'next/image'
-import Testimony1 from '../assets/images/circle1.png'
-import Bubble from '../assets/images/bubble.png'
-import vector from '../assets/images/Vector 2.png'
+import Testimony1 from '../../public/img/circle1.png'
+import Bubble from '../../public/img/bubble.png'
+import vector from '../../public/img/Vector 2.png'
 
 const Testimonial = () => {
   return (

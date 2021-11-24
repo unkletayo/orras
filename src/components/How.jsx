@@ -1,11 +1,11 @@
 import Img from 'next/image'
-import MusicIcon from '../assets/images/online-discussions.svg'
+import MusicIcon from '../../public/img/online-discussions.svg'
 
 const How = () => {
   return (
     <>
       <div className="How">
-        <div className="hope">
+        <div className="How-header">
           <h2 className="How-header">How We Make The World Listen To You</h2>
           <div className="line"></div>
         </div>

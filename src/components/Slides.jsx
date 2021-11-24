@@ -1,9 +1,9 @@
 import Image from 'next/image'
 
-import Slide1 from '../assets/images/slide1.png'
-import Slide2 from '../assets/images/slide2.png'
-import Slide3 from '../assets/images/slide3.png'
-import Slide4 from '../assets/images/slide4.png'
+import Slide1 from '../../public/img/slide1.png'
+import Slide2 from '../../public/img/slide2.png'
+import Slide3 from '../../public/img/slide3.png'
+import Slide4 from '../../public/img/slide4.png'
 
 const images = [Slide1, Slide2, Slide3, Slide4]
 

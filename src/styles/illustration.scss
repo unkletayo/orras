@@ -1,20 +1,10 @@
 .Illustration {
   .Illustration-art {
     background-image: url('../../public/img/music-bg.png');
-    width: 100%;
-    text-align: center;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    .Illustration-art-img {
-      img {
-        height: 100%;
-        width: 100%;
-        display: none;
-      }
-    }
   }
   .Illustration-talents {
     text-align: center;
@@ -32,7 +22,7 @@
         &::after {
           position: absolute;
           content: '';
-          bottom: 9px;
+          bottom: 5px;
           left: 0px;
           width: 100%;
           height: 3px;
@@ -58,11 +48,10 @@
       font-family: 'Tiempos Headline', sans-serif;
       font-style: normal;
       font-weight: normal;
-      font-size: 3vw;
-      line-height: 1.6;
+      font-size: 36px;
+      line-height: 1.5;
       text-align: center;
       color: #ffffff;
-      // max-width: 500px;
     }
     .talents {
       display: flex;
@@ -73,16 +62,21 @@
       gap: 50px;
       margin-top: 40px;
 
-      .talent-image {
-        border-radius: 50%;
-        width: 70px;
-        height: 70px;
-        transform: scale(0.8);
-      }
-
-      p {
-        padding: 0;
-        margin: 0;
+      .talent {
+        .talent-image {
+          border-radius: 50%;
+          width: 70px;
+          height: 70px;
+          transform: scale(0.8);
+        }
+        p {
+          font-family: 'Gotham', sans-serif;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 18px;
+          line-height: 125.7%;
+          color: #8f8f8f;
+        }
       }
     }
   }

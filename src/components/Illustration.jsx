@@ -1,7 +1,7 @@
 import Image from 'next/image'
-import MusicBg from '../assets/images/Artiste.png'
-import TransPerformance from '../assets/images/Trans Perfomance 2.png'
-import scottGiri from '../assets/images/scott-giri.png'
+import MusicBg from '../../public/img/Artiste.png'
+import TransPerformance from '../../public/img/Trans Perfomance 2.png'
+import scottGiri from '../../public/img/scott-giri.png'
 const Illustration = () => {
   return (
     <div className="Illustration">
@@ -20,15 +20,15 @@ const Illustration = () => {
         </div>
 
         <div className="talents">
-          <div>
+          <div className="talent">
             <Image className="talent-image" src={scottGiri} alt="..." />
             <p>King Bernard</p>
           </div>
-          <div>
+          <div className="talent">
             <Image className="talent-image" src={scottGiri} alt="..." />
             <p>King Bernard</p>
           </div>{' '}
-          <div>
+          <div className="talent">
             <Image className="talent-image" src={scottGiri} alt="..." />
             <p>King Bernard</p>
           </div>

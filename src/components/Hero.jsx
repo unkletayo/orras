@@ -2,9 +2,9 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 import Image from 'next/image'
-import Artiste from '../assets/images/Artiste big.png'
-import SpotLight from '../assets/images/spotlight.png'
-import HeroLogo from '../assets/images/hero-logo.png'
+import Artiste from '../../public/img/Artiste big.png'
+import SpotLight from '../../public/img/spotlight.png'
+import HeroLogo from '../../public/img/hero-logo.png'
 const Hero = () => {
   const [showIcon, setShowIcon] = useState(false)
   const [isHovered, setHovered] = useState(false)
@@ -24,43 +24,39 @@ const Hero = () => {
   }
 
   const list = {
-    visible: false,
-    hidden: { opacity: 0 },
-    exit: { opacity: 0 },
-    transition: {
-      duration: 0.6,
-      ease: [0.43, 0.13, 0.23, 0.96],
-    },
+    initial: { y: 50, opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+    exit: { y: -50, opacity: 0 },
+    transition,
   }
   return (
     <div className={`hero`}>
-      <AnimatePresence>
-        {!showIcon ? (
-          <motion.div variants={list} className={`heroText`} key="1">
-            <h1>Make The World Listen</h1>
-            <p className="hero-description">
-              Your talent should not be hidden or sealed away in uncut videos
-              and unheard songs. It should be enjoyed and celebrated by as many
-              as possible.
-            </p>
-            <button className="cta-button">
-              Lets get you out there &darr;
-            </button>
-          </motion.div>
-        ) : (
-          <motion.div variants={list} className={`heroText`} key="2">
-            <h1>Lorem ipsum dolor sit amet.</h1>
-            <p className="hero-description">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis
-              iusto magnam expedita dignissimos consectetur totam maiores atque,
-              ex omnis nulla!
-            </p>
-            <button className="cta-button">
-              Lets get you out there &darr;
-            </button>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <>
+        <div className={`heroText`}>
+          <AnimatePresence>
+            {!showIcon ? (
+              <motion.div variants={list} key="1">
+                <h1>Make The World Listen</h1>
+                <p className="hero-description">
+                  Your talent should not be hidden or sealed away in uncut
+                  videos and unheard songs. It should be enjoyed and celebrated
+                  by as many as possible.
+                </p>
+              </motion.div>
+            ) : (
+              <motion.div variants={list} key="2">
+                <h1>Lorem ipsum dolor sit amet.</h1>
+                <p className="hero-description">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Nobis iusto magnam expedita dignissimos consectetur totam
+                  maiores atque, ex omnis nulla!
+                </p>
+              </motion.div>
+            )}
+          </AnimatePresence>
+          <button className="cta-button">Lets get you out there &darr;</button>
+        </div>
+      </>
 
       <div className={`heroImage`}>
         <AnimatePresence>

@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import RightArrow from '../assets/images/arrow-right.png'
+import RightArrow from '../../public/img/arrow-right.png'
 
 const Contact = () => {
   return (
