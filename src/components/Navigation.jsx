@@ -1,10 +1,11 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import Logo from '../assets/images/orass-logo.png'
+import { AiOutlineMenu } from 'react-icons/ai'
 const Navigation = ({ sticky }) => {
   return (
     <div className={sticky ? 'Navigation navbar-sticky' : 'Navigation'}>
-      <nav>
+      <nav className="desktop-nav">
         <li>
           <Link href="#idf">
             <a>Who we are</a>
@@ -32,6 +33,19 @@ const Navigation = ({ sticky }) => {
             <a>Who we are</a>
           </Link>{' '}
         </li>
+      </nav>
+      <nav className="mobile-nav">
+        <div>
+          <Link href="/">
+            <a>
+              <Image src={Logo} alt="..." />
+            </a>
+          </Link>
+        </div>
+
+        <div>
+          <AiOutlineMenu className="burger" />
+        </div>
       </nav>
     </div>
   )

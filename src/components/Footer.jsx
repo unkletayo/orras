@@ -7,6 +7,9 @@ const Footer = () => {
   return (
     <div className="Footer">
       <div className="Footer-links">
+        {/* <div className="link">
+          
+        </div> */}
         <a href="!#">
           <AiFillFacebook />
         </a>
@@ -17,7 +20,7 @@ const Footer = () => {
           <AiFillInstagram />
         </a>
       </div>
-      <div className="created-b">Copyright 2021 © Orras Entertainment</div>
+      <div className="created-by">Copyright 2021 © Orras Entertainment</div>
     </div>
   )
 }
