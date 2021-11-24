@@ -1,5 +1,5 @@
 import Img from 'next/image'
-import OrrasWhite from '../assets/images/OrassWhite.png'
+import OrrasWhite from '../../public/img/OrassWhite.png'
 import ArrowRight from '../assets/images/arrow-right.png'
 const About = () => {
   return (

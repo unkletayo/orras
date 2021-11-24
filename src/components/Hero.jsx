@@ -73,8 +73,11 @@ const Hero = () => {
               key="3"
               onMouseEnter={() => setHovered(true)}
               onMouseLeave={() => setHovered(false)}
+              className="hero-right"
             >
               <Image src={Artiste} alt="Artiste" />
+              <div className="hero-spotlight"></div>
+
               {isHovered && (
                 <motion.div
                   initial={false}

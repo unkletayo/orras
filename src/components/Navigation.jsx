@@ -8,13 +8,13 @@ const Navigation = ({ sticky }) => {
       <nav className="desktop-nav">
         <li>
           <Link href="#idf">
-            <a>Who we are</a>
-          </Link>{' '}
+            <a className="nav-link">Who we are</a>
+          </Link>
         </li>
         <li>
           <Link href="#idf">
-            <a>Who we are</a>
-          </Link>{' '}
+            <a className="nav-link">Who we are</a>
+          </Link>
         </li>
         <li>
           <Link href="/">
@@ -25,13 +25,13 @@ const Navigation = ({ sticky }) => {
         </li>
         <li>
           <Link href="#idf">
-            <a>Who we are</a>
-          </Link>{' '}
+            <a className="nav-link">Who we are</a>
+          </Link>
         </li>{' '}
         <li>
           <Link href="#idf">
-            <a>Who we are</a>
-          </Link>{' '}
+            <a className="nav-link">Who we are</a>
+          </Link>
         </li>
       </nav>
       <nav className="mobile-nav">

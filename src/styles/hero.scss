@@ -1,9 +1,9 @@
 .hero {
   display: flex;
-  min-height: 100vh;
+  height: 776px;
   align-items: center;
-  justify-content: center;
-  padding: 2rem 7rem;
+  justify-content: space-between;
+  padding: 0 122px;
   width: 100%;
 
   @include media('<=tablet') {
@@ -13,7 +13,8 @@
   }
 
   .heroText {
-    text-align: left;
+    // text-align: left;
+    min-width: 500px;
     h1 {
       font-family: 'Tiempos Headline', sans-serif;
       font-style: normal;
@@ -23,19 +24,19 @@
       display: flex;
       align-items: center;
       color: #ffffff;
-
+      width: 500px;
       @include media('<=tablet') {
         font-size: 30px;
         width: 250px;
       }
     }
+
     .hero-description {
-      max-width: 600px;
+      max-width: 500px;
       margin: 30px 0;
       line-height: 1.4;
       font-size: 20px;
       font-weight: 400;
-
       @include media('<=tablet') {
         font-size: 16px;
       }
@@ -50,11 +51,35 @@
       border: 1px solid#fff;
       cursor: pointer;
       transition: all 0.2s ease-out;
+      position: relative;
+
+      &::after {
+        position: absolute;
+        content: '';
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        height: 3px;
+        transform-origin: left;
+        transform: scaleX(0);
+        transition: background 0.4s ease-in;
+        opacity: 1;
+        background-image: url('../../public/img/cta-strip.svg');
+      }
 
       &:hover {
         border-bottom: none;
-        box-shadow: inset 0 -5px 0 #fc5185, inset 0 -5px 0 #7b272c;
+        &::after {
+          opacity: 0.7;
+          transform: scaleX(1);
+          transition: transform 0.7s cubic-bezier(0.2, 1, 0.3, 1),
+            opacity 0.1s linear;
+        }
       }
+
+      // &:hover {
+      //   box-shadow: inset 0 -5px 0 #fc5185, inset 0 -5px 0 #7b272c;
+      // }
     }
   }
 
@@ -63,28 +88,37 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    min-width: 500px;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
     mix-blend-mode: lighten;
     min-height: 500px;
-    flex: 1;
     transition: visibility 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    .hero-right {
+      .hero-spotlight {
+        position: absolute;
+        background: url('../../public//img//spotlight.png');
+        transform: scale(0);
+        mix-blend-mode: lighten;
+        opacity: 0.2;
+      }
+    }
+
     .spotlight {
       position: absolute;
       top: -300px;
       right: -180px;
-      opacity: 0.8;
       visibility: hidden;
       transform: scale(0.85);
-      transition: all 0.4s ease-in visibility 0.5s
-        cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      opacity: 0.2;
+      transition: 0.1s ease-in;
     }
 
     &:hover {
       .spotlight {
         visibility: visible;
+        opacity: 0.012;
       }
     }
   }
@@ -93,6 +127,7 @@
     align-content: flex-end;
     justify-content: center;
     align-items: center;
+    position: relative;
   }
   .toggles {
     position: absolute;
