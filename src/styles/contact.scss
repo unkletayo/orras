@@ -100,6 +100,12 @@
       .content-cta {
         span {
           display: block;
+          @include media('>tablet') {
+            &:not(:last-of-type) {
+              display: inline-block;
+              padding: 5px;
+            }
+          }
         }
         font-family: 'Tiempos Headline', sans-serif;
         font-style: normal;
@@ -111,6 +117,8 @@
 
         a {
           color: #8f8f8f;
+          cursor: pointer;
+          padding: 0 5px;
         }
       }
     }
