@@ -7,9 +7,6 @@ const Footer = () => {
   return (
     <div className="Footer">
       <div className="Footer-links">
-        {/* <div className="link">
-          
-        </div> */}
         <a href="!#">
           <Image src={Facebook} alt="..." />
         </a>

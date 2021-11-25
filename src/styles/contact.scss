@@ -75,4 +75,44 @@
       }
     }
   }
+
+  .content {
+    position: relative;
+    .cancel-button {
+      position: absolute;
+      top: 41px;
+      right: 30px;
+    }
+    .content-items {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: absolute;
+      top: -50%;
+      left: 50%;
+      transform: translate(-50%, 50%);
+
+      .logo-icon {
+        margin-bottom: 80px;
+      }
+
+      .content-cta {
+        span {
+          display: block;
+        }
+        font-family: 'Tiempos Headline', sans-serif;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 28px;
+        line-height: 1.2;
+        text-align: center;
+        color: #ffffff;
+
+        a {
+          color: #8f8f8f;
+        }
+      }
+    }
+  }
 }

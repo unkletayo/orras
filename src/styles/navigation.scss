@@ -70,4 +70,26 @@
       transform: scale(2);
     }
   }
+
+  .mobile-modal {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+
+    .navigation {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -30%);
+
+      li {
+        list-style: none;
+        margin: 15px 0;
+      }
+    }
+  }
 }
