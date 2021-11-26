@@ -1,39 +1,92 @@
 import Img from 'next/image'
+import { motion, AnimatePresence } from 'framer-motion'
+
 import OrrasWhite from '../../public/img/OrassWhite.png'
 import ArrowRight from '../../public/img/arrow-right.png'
+import Test from '../../public/img/gmb-boss.png'
+import { useState } from 'react'
+
 const About = () => {
+  const [animateAbout, setAnimateAbout] = useState(true)
   return (
-    <div className="About">
+    <div id="about-section" className="About">
       <div className="About-top">
         <Img className="about-image" src={OrrasWhite} alt="..." />
         <div className="straight"></div>
       </div>
 
       <div className="About-desc">
-        <div className="first-set set">
-          <div className="description">
-            <h2>Who we are</h2>
-            <p>
-              Orras is a music promotion brand dedicated to promoting ambitious
-              talents to a larger audience across the world by focusing on
-              credible promotion strategies that are effective for both up and
-              coming artists and established acts.
-            </p>
-          </div>
-          <div className="description">
-            <h2>Our Ethos</h2>
-            <p>
-              Beyond providing artists around the world the structure to share
-              their sounds past their boundaries and locality. We strongly
-              believe in the talent, determination and a versatility of every
-              individual we choose to work with; and that is why we ensure that
-              for every client we promote, lasting results are a must.
-              <span className="more">
-                Learn more <Img className="img" src={ArrowRight} alt="..." />
-              </span>
-            </p>
-          </div>
-        </div>
+        <AnimatePresence>
+          {animateAbout && (
+            <motion.div className="first-set set">
+              <motion.div
+                initial={{ x: 0, y: 0, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: -100, y: 0, opacity: 0 }}
+                key="2"
+                className="description"
+              >
+                <h2>Who we are</h2>
+                <p>
+                  Orras is a music promotion brand dedicated to promoting
+                  ambitious talents to a larger audience across the world by
+                  focusing on credible promotion strategies that are effective
+                  for both up and coming artists and established acts.
+                </p>
+              </motion.div>
+              <motion.div
+                initial="false"
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ delay: 1 }}
+                key="2"
+                className="description"
+              >
+                <h2>Our Ethos</h2>
+                <p>
+                  Beyond providing artists around the world the structure to
+                  share their sounds past their boundaries and locality. We
+                  strongly believe in the talent, determination and a
+                  versatility of every individual we choose to work with; and
+                  that is why we ensure that for every client we promote,
+                  lasting results are a must.
+                  <span onClick={() => setAnimateAbout(false)} className="more">
+                    Learn more{' '}
+                    <Img className="img" src={ArrowRight} alt="..." />
+                  </span>
+                </p>
+              </motion.div>
+            </motion.div>
+          )}
+
+          {!animateAbout && (
+            <div className="second-set set">
+              <div className="images">
+                <div className="image">
+                  <Img src={Test} alt="..." />
+                </div>
+                <div className="image">
+                  <Img src={Test} alt="..." />
+                </div>
+              </div>
+              <div className="description">
+                <h2>Our Ethos</h2>
+                <p>
+                  Beyond providing artists around the world the structure to
+                  share their sounds past their boundaries and locality. We
+                  strongly believe in the talent, determination and a
+                  versatility of every individual we choose to work with; and
+                  that is why we ensure that for every client we promote,
+                  lasting results are a must.
+                  <span onClick={() => setAnimateAbout(true)} className="more">
+                    Learn more{' '}
+                    <Img className="img" src={ArrowRight} alt="..." />
+                  </span>
+                </p>
+              </div>
+            </div>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   )

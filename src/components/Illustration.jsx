@@ -2,14 +2,17 @@ import Image from 'next/image'
 import MusicBg from '../../public/img/Artiste.png'
 import TransPerformance from '../../public/img/Trans Perfomance 2.png'
 import scottGiri from '../../public/img/scott-giri.png'
-const Illustration = () => {
+const Work = () => {
   return (
-    <div className="Illustration">
+    <div id="work-section" className="Illustration">
       <div className="Illustration-art">
         <Image
           className="Illustration-art-img"
           src={TransPerformance}
           alt="..."
+          quality="1"
+          unoptimized={true}
+          objectFit="contain"
         />
       </div>
 
@@ -38,4 +41,4 @@ const Illustration = () => {
   )
 }
 
-export default Illustration
+export default Work

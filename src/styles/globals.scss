@@ -67,6 +67,10 @@ a {
   text-decoration: none;
 }
 
+a:link {
+  scroll-behavior: smooth !important;
+}
+
 * {
   box-sizing: border-box;
 }

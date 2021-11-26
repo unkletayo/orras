@@ -1,10 +1,14 @@
 .Illustration {
   .Illustration-art {
-    background-image: url('../../public/img/music-bg.png');
+    background: url('../../public/img/music-bg.png');
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-size: cover;
+    @include media('<=tablet') {
+      background: none;
+    }
   }
   .Illustration-talents {
     text-align: center;

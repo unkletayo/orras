@@ -1,5 +1,72 @@
+.first-set,
+.second-set {
+  .description {
+    flex: 1;
+    margin: 20px 0;
+    h2 {
+      color: #fff;
+      font-family: 'Gotham', sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 24px;
+      line-height: 125.7%;
+      margin-bottom: 30px;
+      position: relative;
+
+      &::after {
+        position: absolute;
+        content: '';
+        bottom: -10px;
+        left: 0px;
+        width: 80%;
+        height: 3px;
+        transform-origin: left;
+        transform: scaleX(0);
+        transition: background 0.4s ease-in;
+        opacity: 1;
+        background-image: url('../../public/img/how-strip.svg');
+      }
+
+      &:hover::after {
+        opacity: 0.7;
+        transform: scaleX(1);
+        transition: transform 0.7s cubic-bezier(0.2, 1, 0.3, 1),
+          opacity 0.1s linear;
+      }
+    }
+
+    p {
+      font-family: 'Gotham', sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      max-width: 80%;
+      line-height: 1.23;
+      color: #8f8f8f;
+    }
+
+    p .more {
+      color: $white;
+      display: flex;
+      align-items: center;
+      vertical-align: middle;
+      margin: 20px 0;
+      cursor: pointer;
+      height: 24px;
+
+      .img {
+        transform: scale(0.8);
+        margin: 50px 10px;
+        display: none;
+      }
+    }
+  }
+}
 .About {
-  padding: 0 122px;
+  // padding: 0 122px;
+  padding-left: 122px;
+  padding-top: 0;
+  padding-bottom: 0;
   min-height: 453px;
   height: 100%;
   @include media('<=tablet') {
@@ -69,73 +136,29 @@
   .About-desc {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
+    flex-direction: column;
     .set {
       max-width: 800px;
       display: flex;
       justify-content: space-evenly;
+      margin-left: 250px;
       @include media('<=tablet') {
         flex-direction: column;
+        margin-left: 0;
       }
-      .description {
-        flex: 1;
-        margin: 20px 0;
-        h2 {
-          color: #fff;
-          font-family: 'Gotham', sans-serif;
-          font-style: normal;
-          font-weight: normal;
-          font-size: 24px;
-          line-height: 125.7%;
-          margin-bottom: 30px;
-          position: relative;
+    }
 
-          &::after {
-            position: absolute;
-            content: '';
-            bottom: -10px;
-            left: 0px;
-            width: 80%;
-            height: 3px;
-            transform-origin: left;
-            transform: scaleX(0);
-            transition: background 0.4s ease-in;
-            opacity: 1;
-            background-image: url('../../public/img/how-strip.svg');
-          }
+    .second-set {
+      gap: 50px;
 
-          &:hover::after {
-            opacity: 0.7;
-            transform: scaleX(1);
-            transition: transform 0.7s cubic-bezier(0.2, 1, 0.3, 1),
-              opacity 0.1s linear;
-          }
-        }
-
-        p {
-          font-family: 'Gotham', sans-serif;
-          font-style: normal;
-          font-weight: normal;
-          font-size: 16px;
-          max-width: 80%;
-          line-height: 1.23;
-          color: #8f8f8f;
-        }
-
-        p .more {
-          color: $white;
-          display: flex;
-          align-items: center;
-          vertical-align: middle;
-          margin: 20px 0;
-          cursor: pointer;
-          height: 24px;
-
-          .img {
-            transform: scale(0.8);
-            margin: 50px 10px;
-            display: none;
-          }
+      .images {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        .image {
+          width: 150px;
+          height: 150px;
         }
       }
     }

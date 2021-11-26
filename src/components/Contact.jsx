@@ -9,7 +9,7 @@ const Contact = () => {
   const [show, setShow] = useState(false)
 
   return (
-    <div className="Contact">
+    <div id="contact-section" className="Contact">
       <div className="Contact-header">
         <h2>Are You Ready For the World?</h2>
       </div>
