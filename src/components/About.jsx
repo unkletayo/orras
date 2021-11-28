@@ -6,6 +6,27 @@ import ArrowRight from '../../public/img/arrow-right.png'
 import Test from '../../public/img/gmb-boss.png'
 import { useState } from 'react'
 
+const variants = {
+  visible: {
+    opacity: 1,
+    transition: {
+      when: 'beforeChildren',
+      staggerChildren: 0.3,
+    },
+  },
+  hidden: {
+    opacity: 0,
+    transition: {
+      when: 'afterChildren',
+    },
+  },
+}
+
+const itemVariants = {
+  visible: { opacity: 1, x: 0 },
+  hidden: { opacity: 0, x: -100 },
+}
+
 const About = () => {
   const [animateAbout, setAnimateAbout] = useState(true)
   return (
@@ -19,13 +40,7 @@ const About = () => {
         <AnimatePresence>
           {animateAbout && (
             <motion.div className="first-set set">
-              <motion.div
-                initial={{ x: 0, y: 0, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                exit={{ x: -100, y: 0, opacity: 0 }}
-                key="2"
-                className="description"
-              >
+              <motion.div variants={variants} key="2" className="description">
                 <h2>Who we are</h2>
                 <p>
                   Orras is a music promotion brand dedicated to promoting
@@ -34,14 +49,7 @@ const About = () => {
                   for both up and coming artists and established acts.
                 </p>
               </motion.div>
-              <motion.div
-                initial="false"
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ delay: 1 }}
-                key="2"
-                className="description"
-              >
+              <motion.div key="11" className="description">
                 <h2>Our Ethos</h2>
                 <p>
                   Beyond providing artists around the world the structure to
@@ -60,7 +68,11 @@ const About = () => {
           )}
 
           {!animateAbout && (
-            <div className="second-set set">
+            <motion.div
+              variants={itemVariants}
+              initial="hidden"
+              className="second-set set"
+            >
               <div className="images">
                 <div className="image">
                   <Img src={Test} alt="..." />
@@ -84,7 +96,7 @@ const About = () => {
                   </span>
                 </p>
               </div>
-            </div>
+            </motion.div>
           )}
         </AnimatePresence>
       </div>
