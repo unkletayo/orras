@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import Image from 'next/image'
+import { Router, useRouter } from 'next/router'
 import { motion, AnimatePresence } from 'framer-motion'
 import SpotLight from '../../../public/img/spotlight.png'
 import { useMediaQuery } from '../../hooks/useMediaQuery'
@@ -8,6 +9,7 @@ import { useMediaQuery } from '../../hooks/useMediaQuery'
 const Hero = () => {
   const [showIcon, setShowIcon] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
+  const router = useRouter()
 
   const isPageWide = useMediaQuery('(min-width: 768px)')
 
@@ -73,16 +75,23 @@ const Hero = () => {
               transition={{ ...transition }}
               key="2"
             >
-              <h1>Lorem ipsum dolor sit amet.</h1>
+              <h1>Welcome to Orras Entertainment </h1>
               <p className="hero-description">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis
-                iusto magnam expedita dignissimos consectetur totam maiores
-                atque, ex omnis nulla!
+                At Orras, we position ourselves as an entity dedicated to high
+                standards and meticulous attention to details. The future is
+                music and we are creating that future by building a structure
+                that provides artistes the right channel for music promotion and
+                distribution.
               </p>
             </motion.div>
           )}
         </AnimatePresence>
-        <button className="cta-button">Lets get you out there &darr;</button>
+        <button
+          onClick={() => router.push('/#contact-section')}
+          className="cta-button"
+        >
+          Lets get you out there &darr;
+        </button>
       </div>
 
       <div className={`heroImage`}>

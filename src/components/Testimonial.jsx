@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Testimony1 from '../../public/img/circle1.png'
 import Bubble from '../../public/img/bubble.png'
+import Conver from '../../public/img/banner-tail.svg'
 import vector from '../../public/img/Vector 2.png'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
@@ -29,11 +30,13 @@ const Testimonial = () => {
             </div>
             {show && (
               <motion.div
-                initial={{ opacity: 0, y: -5 }}
+                initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
+                transition={{ duration: 0.4 }}
                 className="Testimony-statement"
               >
+                {/* <Image src={Conver} alt="..." /> */}
                 <p>
                   My music has touched 10 million + people since i released my
                   E.p in 2021.
