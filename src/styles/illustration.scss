@@ -12,7 +12,8 @@
   }
   .Illustration-talents {
     text-align: center;
-    margin: 100px 20px;
+    padding-top: 100px;
+
     .header {
       position: relative;
       display: flex;
@@ -56,6 +57,10 @@
       line-height: 1.5;
       text-align: center;
       color: #ffffff;
+
+      @include media('<=tablet') {
+        font-size: 30px;
+      }
     }
     .talents {
       display: flex;

@@ -4,7 +4,7 @@ import TransPerformance from '../../public/img/Trans Perfomance 2.png'
 import scottGiri from '../../public/img/scott-giri.png'
 const Work = () => {
   return (
-    <div id="work-section" className="Illustration">
+    <div className="Illustration">
       <div className="Illustration-art">
         <Image
           className="Illustration-art-img"
@@ -16,7 +16,7 @@ const Work = () => {
         />
       </div>
 
-      <div className="Illustration-talents">
+      <div id="work-section" className="Illustration-talents">
         <div className="header">
           <h2>Talents We Have Worked With</h2>
           <div className="line"></div>

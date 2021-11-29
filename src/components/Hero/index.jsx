@@ -3,12 +3,11 @@ import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import SpotLight from '../../../public/img/spotlight.png'
 import { useMediaQuery } from '../../hooks/useMediaQuery'
-import HeroImage, { HeroArtiste } from './HeroImage'
-import Artiste from '../../../public/img/Artiste big.png'
+// import Artiste from '../../../public/img/Artiste big.png'
 
 const Hero = () => {
   const [showIcon, setShowIcon] = useState(false)
-  const [isHovered, setHovered] = useState(false)
+  const [isHovered, setIsHovered] = useState(false)
 
   const isPageWide = useMediaQuery('(min-width: 768px)')
 
@@ -17,8 +16,14 @@ const Hero = () => {
   }
 
   const transition = {
-    duration: 0.2,
-    ease: [0.43, 0.13, 0.23, 0.96],
+    duration: 0.6,
+    transition: {
+      delay: 1,
+      duration: 2,
+      ease: [0.075, 0.82, 0.165, 1],
+      repeat: Infinity,
+      repeatType: 'reverse',
+    },
   }
 
   const list = {
@@ -36,9 +41,14 @@ const Hero = () => {
           {!showIcon ? (
             <motion.div
               ref={inRef}
-              initial={{ y: inRef?.current?.height, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: inRef?.current?.height, opacity: 0 }}
+              initial={{ y: inRef?.current?.height, x: 0, opacity: 0 }}
+              animate={{ x: 0, y: 0, opacity: 1 }}
+              exit={{
+                y: outRef?.current?.height,
+                height: 0,
+                width: 0,
+                opacity: 0,
+              }}
               transition={{ ...transition }}
               key="1"
             >
@@ -54,7 +64,12 @@ const Hero = () => {
               ref={outRef}
               initial={{ y: outRef?.current?.height, opacity: 0 }}
               animate={{ x: 0, y: 0, opacity: 1 }}
-              exit={{ y: outRef?.current?.height, opacity: 0 }}
+              exit={{
+                y: outRef?.current?.height,
+                height: 0,
+                width: 0,
+                opacity: 0,
+              }}
               transition={{ ...transition }}
               key="2"
             >
@@ -71,21 +86,14 @@ const Hero = () => {
       </div>
 
       <div className={`heroImage`}>
-        {/* <HeroImage
-          showIcon={showIcon}
-          transition={transition}
-          isPageWide={isPageWide}
-          isHovered={isHovered}
-          setHovered={setHovered}
-        /> */}
         <AnimatePresence>
           {showIcon ? (
             <motion.div
               showIcon={showIcon}
               transition={transition}
               isPageWide={isPageWide}
-              isHovered={isHovered}
-              setHovered={setHovered}
+              onMouseEnter={() => setIsHovered(false)}
+              onMouseLeave={() => setIsHovered(false)}
               className="mobile-artiste set"
             ></motion.div>
           ) : (

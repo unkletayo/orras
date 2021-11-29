@@ -3,6 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 import OrrasWhite from '../../public/img/OrassWhite.png'
 import ArrowRight from '../../public/img/arrow-right.png'
+import ArrowLeft from '../../public/img/arrow-left.svg'
+import Cranium from '../../public/img/cranium.png'
+import Emoji from '../../public/img/emoji.svg'
 import Test from '../../public/img/gmb-boss.png'
 import { useState } from 'react'
 
@@ -39,8 +42,13 @@ const About = () => {
       <div className="About-desc">
         <AnimatePresence>
           {animateAbout && (
-            <motion.div className="first-set set">
-              <motion.div variants={variants} key="2" className="description">
+            <motion.div
+              initial={{ x: 50, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: -50, opacity: 0 }}
+              className="first-set set"
+            >
+              <motion.div key="2" className="description">
                 <h2>Who we are</h2>
                 <p>
                   Orras is a music promotion brand dedicated to promoting
@@ -69,30 +77,29 @@ const About = () => {
 
           {!animateAbout && (
             <motion.div
-              variants={itemVariants}
-              initial="hidden"
+              initial={{ x: 50, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: -50, opacity: 0 }}
               className="second-set set"
             >
               <div className="images">
                 <div className="image">
-                  <Img src={Test} alt="..." />
+                  <Img src={Emoji} alt="..." />
                 </div>
                 <div className="image">
-                  <Img src={Test} alt="..." />
+                  <Img src={Cranium} alt="..." />
                 </div>
               </div>
               <div className="description">
-                <h2>Our Ethos</h2>
+                {/* <h2>Our Ethos</h2> */}
                 <p>
-                  Beyond providing artists around the world the structure to
-                  share their sounds past their boundaries and locality. We
-                  strongly believe in the talent, determination and a
-                  versatility of every individual we choose to work with; and
-                  that is why we ensure that for every client we promote,
-                  lasting results are a must.
+                  Orras is a music promotion brand dedicated to promoting
+                  ambitious talents to a larger audience across the world by
+                  focusing on credible promotion strategies that are effective
+                  for both up and coming artists and established acts.
                   <span onClick={() => setAnimateAbout(true)} className="more">
-                    Learn more{' '}
-                    <Img className="img" src={ArrowRight} alt="..." />
+                    See Less
+                    <Img className="img" src={ArrowLeft} alt="..." />
                   </span>
                 </p>
               </div>

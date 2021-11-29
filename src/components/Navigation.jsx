@@ -61,42 +61,42 @@ const Navigation = () => {
       </nav>
 
       {!show && (
-        <Sticky enabled={true} top={0}>
-          <nav className="mobile-nav">
-            <div>
-              <Link href="/">
-                <a>
-                  <Image src={Logo} alt="..." />
-                </a>
-              </Link>
-            </div>
+        // <Sticky enabled={true} top={500}>
+        <nav className="mobile-nav">
+          <div>
+            <Link href="/">
+              <a>
+                <Image src={Logo} alt="..." />
+              </a>
+            </Link>
+          </div>
 
-            <div onClick={() => setShow((prev) => !prev)}>
-              <Image src={Menu} alt="..." />
-            </div>
-          </nav>
-        </Sticky>
+          <div onClick={() => setShow((prev) => !prev)}>
+            <Image src={Menu} alt="..." />
+          </div>
+        </nav>
+        // </Sticky>
       )}
 
       <Modal className show={show} showIcon setShow={setShow}>
         <div className="mobile-modal">
           <nav className="navigation">
-            <li>
+            <li onClick={() => setShow((prev) => !prev)}>
               <Link href={`#about-section`}>
                 <a className="nav-link">Who we are</a>
               </Link>
             </li>
-            <li>
+            <li onClick={() => setShow((prev) => !prev)}>
               <Link href="#services-section">
                 <a className="nav-link">Our Services</a>
               </Link>
             </li>
-            <li>
+            <li onClick={() => setShow((prev) => !prev)} i>
               <Link href="#work-section">
                 <a className="nav-link">Our Work</a>
               </Link>
             </li>{' '}
-            <li>
+            <li onClick={() => setShow((prev) => !prev)}>
               <Link href="#contact-section">
                 <a className="nav-link">Contact Us</a>
               </Link>

@@ -1,9 +1,9 @@
 .How {
   min-height: 500px;
   height: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
   display: grid;
+  padding: 150px 0;
   place-items: center;
   max-width: 95%;
   .How-header {

@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, whileHover } from 'framer-motion'
 import Image from 'next/image'
 import Artiste from '../../../public/img/Artiste big.png'
 import BigArtiste from '../../../public/img/Artiste big.png'
