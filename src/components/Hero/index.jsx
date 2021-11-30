@@ -50,26 +50,33 @@ const Hero = () => {
       <div className={`heroText`}>
         <AnimatePresence>
           {!showIcon ? (
-            <motion.div
-              ref={inRef}
-              initial={{ y: -inRef?.current?.height, x: 0, opacity: 0 }}
-              animate={{ x: 0, y: 0, opacity: 1 }}
-              exit={{
-                y: inRef?.current?.height,
-                height: 0,
-                width: 0,
-                opacity: 0,
-              }}
-              transition={{ ...transition }}
-              key="1"
-            >
-              <h1>Make The World Listen</h1>
-              <p className="hero-description">
-                Your talent should not be hidden or sealed away in uncut videos
-                and unheard songs. It should be enjoyed and celebrated by as
-                many as possible.
-              </p>
-            </motion.div>
+            <>
+              <motion.div
+                ref={inRef}
+                initial={{ y: -inRef?.current?.height, x: 0, opacity: 0 }}
+                animate={{ x: 0, y: 0, opacity: 1 }}
+                exit={{
+                  y: inRef?.current?.height,
+                  height: 0,
+                  width: 0,
+                  opacity: 0,
+                }}
+                transition={{ ...transition }}
+                key="1"
+              >
+                <h1>Make The World Listen</h1>
+                <p className="hero-description">
+                  Your talent should not be hidden or sealed away in uncut
+                  videos and unheard songs. It should be enjoyed and celebrated
+                  by as many as possible.
+                </p>
+              </motion.div>
+              <div
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                className="hover-area"
+              ></div>
+            </>
           ) : (
             <motion.div
               ref={outRef}
@@ -113,7 +120,13 @@ const Hero = () => {
               onMouseEnter={() => setIsHovered(false)}
               onMouseLeave={() => setIsHovered(false)}
               className="mobile-artiste set"
-            ></motion.div>
+            >
+              <div
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                className="hover-area"
+              ></div>
+            </motion.div>
           ) : (
             <motion.div className="mobile-logo set"></motion.div>
           )}
@@ -131,13 +144,13 @@ const Hero = () => {
 
       {isHovered && (
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={{ x: 60, opacity: 0 }}
           transition={{
             duration: 0.6,
             ease: [0.43, 0.13, 0.23, 0.96],
           }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: 60, opacity: 0 }}
           className="spotlight"
         >
           <Image src={SpotLight} alt="Artiste" />

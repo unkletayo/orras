@@ -16,6 +16,10 @@
   .description {
     flex: 1;
     margin: 20px 0;
+
+    &.about {
+      margin-top: 80px;
+    }
     h2 {
       color: #fff;
       font-family: 'Gotham', sans-serif;

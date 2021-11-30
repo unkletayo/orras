@@ -2,6 +2,23 @@ import Image from 'next/image'
 import MusicBg from '../../public/img/Artiste.png'
 import TransPerformance from '../../public/img/Trans Perfomance 2.png'
 import scottGiri from '../../public/img/scott-giri.png'
+import Benard from '../../public/img/benard.png'
+import GmbBoss from '../../public/img/gmb-boss.png'
+
+const artisteData = [
+  {
+    image: Benard,
+    name: 'King Bernard',
+  },
+  {
+    image: scottGiri,
+    name: 'Scott Giri',
+  },
+  {
+    image: GmbBoss,
+    name: 'GMG Boss',
+  },
+]
 const Work = () => {
   return (
     <div className="Illustration">
@@ -23,18 +40,16 @@ const Work = () => {
         </div>
 
         <div className="talents">
-          <div className="talent">
-            <Image className="talent-image" src={scottGiri} alt="..." />
-            <p>King Bernard</p>
-          </div>
-          <div className="talent">
-            <Image className="talent-image" src={scottGiri} alt="..." />
-            <p>King Bernard</p>
-          </div>{' '}
-          <div className="talent">
-            <Image className="talent-image" src={scottGiri} alt="..." />
-            <p>King Bernard</p>
-          </div>
+          {artisteData.map((data, idx) => (
+            <div key={idx} className="talent">
+              <Image
+                className="talent-image"
+                src={data.image}
+                alt={data.name}
+              />
+              <p>{data.name}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

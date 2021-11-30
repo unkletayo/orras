@@ -10,21 +10,6 @@ import Emoji from '../../public/img/emoji.svg'
 import { carouselParams } from '../shared/carouselData'
 import Carousel from 'react-multi-carousel'
 
-const variants = {
-  visible: {
-    opacity: 1,
-    transition: {
-      when: 'beforeChildren',
-      staggerChildren: 0.3,
-    },
-  },
-  hidden: {
-    opacity: 0,
-    transition: {
-      when: 'afterChildren',
-    },
-  },
-}
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1619 },
@@ -63,6 +48,7 @@ const transition = {
     repeatType: 'reverse',
   },
 }
+
 const About = () => {
   const inRef = useRef(null)
   const outRef = useRef(null)
@@ -139,7 +125,7 @@ const About = () => {
               >
                 <div>
                   <div className="description">
-                    <h2>Our Ethos</h2>
+                    <h2>Leadership</h2>
                   </div>
                   <div className="images">
                     <div className="image">
@@ -152,7 +138,7 @@ const About = () => {
                     </div>
                   </div>
                 </div>
-                <div className="description">
+                <div className="description about">
                   {/* <h2>Our Ethos</h2> */}
                   <p>
                     Orras is a music promotion brand dedicated to promoting

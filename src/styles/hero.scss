@@ -127,6 +127,7 @@
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+        position: relative;
       }
 
       &.mobile-logo {
@@ -196,5 +197,30 @@
     top: -70px;
     right: -100px;
     transform: scale(5) scale3d(10);
+
+    @include media('<=tablet') {
+      // display: none;
+      height: 400px;
+      width: 400px;
+      right: 20;
+      top: 350px;
+      bottom: 0;
+    }
+  }
+
+  .hover-area {
+    position: absolute;
+    height: 500px;
+    width: 600px;
+    top: 80px;
+    right: 30px;
+    @include media('<=tablet') {
+      // display: none;
+      height: 400px;
+      width: 400px;
+      right: 0;
+      top: 0;
+      top: 0;
+    }
   }
 }
