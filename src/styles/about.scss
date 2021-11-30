@@ -1,5 +1,18 @@
 .first-set,
 .second-set {
+}
+
+.About {
+  // padding: 0 122px;
+  padding-left: 122px;
+  padding-top: 0;
+  padding-bottom: 0;
+  min-height: 400px;
+  height: 100%;
+  @include media('<=tablet') {
+    padding: 0 30px;
+  }
+
   .description {
     flex: 1;
     margin: 20px 0;
@@ -60,17 +73,6 @@
         display: none;
       }
     }
-  }
-}
-.About {
-  // padding: 0 122px;
-  padding-left: 122px;
-  padding-top: 0;
-  padding-bottom: 0;
-  min-height: 453px;
-  height: 100%;
-  @include media('<=tablet') {
-    padding: 0 30px;
   }
 
   @include media('<=tablet') {
@@ -143,15 +145,14 @@
       display: flex;
       justify-content: space-evenly;
       margin-left: 250px;
-      @include media('<=tablet') {
-        flex-direction: column;
-        margin-left: 0;
-      }
+      // @include media('<=tablet') {
+      //   flex-direction: column;
+      //   margin-left: 0;
+      // }
     }
 
     .second-set {
       gap: 50px;
-
       .images {
         display: flex;
         align-items: center;
@@ -159,7 +160,35 @@
         .image {
           width: 150px;
           height: 150px;
+          text-align: center;
+          span {
+            padding: 10px 0;
+            color: #8f8f8f;
+          }
         }
+      }
+    }
+  }
+
+  .carousel-container {
+    width: 100%;
+  }
+
+  @include media('<=tablet') {
+    .image {
+      width: 230p;
+      height: 230px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      img {
+        object-fit: contain;
+      }
+      p {
+        padding: 10px 0;
+        color: #8f8f8f;
       }
     }
   }

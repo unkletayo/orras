@@ -1,6 +1,6 @@
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import Image from 'next/image'
-import { Router, useRouter } from 'next/router'
+import { useRouter } from 'next/router'
 import { motion, AnimatePresence } from 'framer-motion'
 import SpotLight from '../../../public/img/spotlight.png'
 import { useMediaQuery } from '../../hooks/useMediaQuery'
@@ -10,8 +10,17 @@ const Hero = () => {
   const [showIcon, setShowIcon] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
   const router = useRouter()
-
   const isPageWide = useMediaQuery('(min-width: 768px)')
+  // const [loop, setLoop] = useState()
+
+  // useEffect(() => {
+  //   setInterval(() => {
+  //     console.log('loading')
+  //     setShowIcon((prev) => !prev)
+  //   }, 1500)
+
+  //   clearInterval(() => setShowIcon((prev) => !prev))
+  // }, [showIcon])
 
   const handleAnimation = () => {
     setShowIcon((prev) => !prev)
@@ -43,10 +52,10 @@ const Hero = () => {
           {!showIcon ? (
             <motion.div
               ref={inRef}
-              initial={{ y: inRef?.current?.height, x: 0, opacity: 0 }}
+              initial={{ y: -inRef?.current?.height, x: 0, opacity: 0 }}
               animate={{ x: 0, y: 0, opacity: 1 }}
               exit={{
-                y: outRef?.current?.height,
+                y: inRef?.current?.height,
                 height: 0,
                 width: 0,
                 opacity: 0,
