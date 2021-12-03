@@ -47,9 +47,13 @@
             opacity 0.1s linear;
         }
       }
+
+      @include media('<=tablet') {
+        flex-direction: row;
+      }
     }
 
-    h2 {
+    .heading {
       font-family: 'Tiempos Headline Light', sans-serif;
       font-style: normal;
       font-weight: normal;
@@ -59,7 +63,16 @@
       color: #ffffff;
 
       @include media('<=tablet') {
-        font-size: 30px;
+        font-size: 34px;
+        text-align: left;
+        padding: 0;
+        margin: 0;
+      }
+
+      @include media('>tablet') {
+        br {
+          display: none;
+        }
       }
     }
     .talents {

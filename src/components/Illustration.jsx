@@ -35,7 +35,9 @@ const Work = () => {
 
       <div className="Illustration-talents">
         <div className="header">
-          <h2>Talents We Have Worked With</h2>
+          <div className="heading">
+            Talents We Have <br /> Worked With
+          </div>
           <div className="line"></div>
         </div>
 

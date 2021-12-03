@@ -7,7 +7,7 @@
   flex-direction: column;
   min-height: 573px;
   @include media('<=tablet') {
-    // padding: 100px 30px;
+    padding: 50px;
   }
 
   &-header {

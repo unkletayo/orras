@@ -7,7 +7,7 @@ import Testimony5 from '../../public/img/testimonial-5.png'
 import Testimony6 from '../../public/img/testimonial-6.png'
 import Testimony7 from '../../public/img/testimonial-7.png'
 import Bubble from '../../public/img/bubble.png'
-import vector from '../../public/img/Vector 2.png'
+import vector from '../../public/img/bubble.svg'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 
@@ -93,10 +93,10 @@ const Testimonial = () => {
                   transition={{ duration: 0.4 }}
                   className="Testimony-statement"
                 >
-                  {/* <Image src={Conver} alt="..." /> */}
-                  <p>{testimony.word}</p>
-                  <div className="vector">
-                    <Image src={vector} alt="..." />
+                  <div className="vector-cover">
+                    <div className="vector">
+                      <p>{testimony.word}</p>
+                    </div>
                   </div>
                 </motion.div>
               )}
@@ -140,10 +140,10 @@ const Testimonial = () => {
                 transition={{ duration: 0.4 }}
                 className="Testimony-statement"
               >
-                {/* <Image src={Conver} alt="..." /> */}
-                <p>{testimony.word}</p>
-                <div className="vector">
-                  <Image src={vector} alt="..." />
+                <div className="vector-cover">
+                  <div className="vector">
+                    <p>{testimony.word}</p>
+                  </div>
                 </div>
               </motion.div>
             )}

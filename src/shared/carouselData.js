@@ -24,7 +24,7 @@ export const responsive = {
 export const carouselParams = {
   swipeable: true,
   draggable: true,
-  showDots: true,
+  showDots: false,
   additionalTransfrom: 0,
   arrows: true,
   autoPlaySpeed: 3000,

@@ -101,7 +101,6 @@
 
     .Testimony-statement {
       position: absolute;
-      background: #ffffff;
       border-radius: 30px;
       font-family: 'Gotham', sans-serif;
       font-style: normal;
@@ -110,14 +109,13 @@
       line-height: 10px;
       color: #000000;
       max-width: 150px;
-      top: -5px;
-      right: -130px;
-      padding: 8px 20px;
-
-      .vector {
-        position: absolute;
-        transform: scale(5);
-      }
+      top: 0px;
+      right: -120px;
+      padding: 10px 20px;
+      background: url('../../public/img/bubble.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: 20px right;
     }
   }
 }
