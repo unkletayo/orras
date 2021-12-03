@@ -17,6 +17,7 @@ const topTestimonies = [
     image: Testimony1,
     word: `My music has touched 10 million + people since i released my
            E.p in 2021.`,
+    showTestimony: false
   },
   {
     class: 'five',
@@ -64,6 +65,15 @@ const Testimonial = () => {
     open: { opacity: 1, x: 0 },
     closed: { opacity: 0, x: '-100%' },
   }
+
+  const showTestimony = (testimony) =>{
+    return testimony?.showTestimony= true
+  }
+
+  const removeTestimony = (testimony) =>{
+    return testimony?.showTestimony= false
+  }
+
   return (
     <div className="Testimonials">
       <div className="Testimonials-Header">
@@ -75,17 +85,17 @@ const Testimonial = () => {
           {topTestimonies?.map((testimony) => (
             <div
               key={testimony.class}
-              onMouseLeave={() => setShow(false)}
+              onMouseLeave={()=>removeTestimony(testimony)}
               className={`Testimony ${testimony.class}`}
             >
               <Image src={testimony.image} alt="..." />
               <div
-                onClick={() => setShow((prev) => !prev)}
+                onClick={()=>showTestimony(testimony)}
                 className="Testimony-banner"
               >
-                {!show && <Image src={Bubble} alt="..." />}
+                {!testimony.showTestimony && <Image src={Bubble} alt="..." />}
               </div>
-              {show && (
+              {testimony.showTestimony && (
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
