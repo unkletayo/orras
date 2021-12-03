@@ -64,15 +64,15 @@ const About = () => {
 
       <div className="About-desc">
         {isPageWide ? (
-          <AnimatePresence>
+          <AnimatePresence exitBeforeEnter>
             {animateAbout ? (
               <motion.div
                 ref={inRef}
-                initial={{ x: -inRef?.current?.height, y: 0, opacity: 0 }}
+                initial={{ x: -inRef?.current?.width, y: 0, opacity: 0 }}
                 animate={{ x: 0, y: 0, opacity: 1 }}
                 exit={{
-                  x: inRef?.current?.height,
-                  height: 0,
+                  x: inRef?.current?.width,
+                  // height: 0,
                   // width: 0,
                   opacity: 0,
                 }}
@@ -111,11 +111,11 @@ const About = () => {
             ) : (
               <motion.div
                 ref={outRef}
-                initial={{ x: outRef?.current?.height, opacity: 0 }}
+                initial={{ x: outRef?.current?.width, opacity: 0 }}
                 animate={{ x: 0, y: 0, opacity: 1 }}
                 exit={{
-                  x: outRef?.current?.height,
-                  height: 0,
+                  x: outRef?.current?.width,
+                  // height: 0,
                   // width: 50,
                   opacity: 0,
                 }}
@@ -130,11 +130,13 @@ const About = () => {
                   <div className="images">
                     <div className="image">
                       <Img src={Emoji} alt="..." />
-                      <span>George Ray</span>
+                      <span className="ray">George Ogundeko</span>
+                      <span>Creative Director</span>
                     </div>
                     <div className="image">
                       <Img src={Cranium} alt="..." />
-                      <span>Cranium</span>
+                      <span className="ray">Cranium X</span>
+                      <span>Comms Manager</span>
                     </div>
                   </div>
                 </div>

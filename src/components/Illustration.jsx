@@ -33,7 +33,7 @@ const Work = () => {
         />
       </div>
 
-      <div id="work-section" className="Illustration-talents">
+      <div className="Illustration-talents">
         <div className="header">
           <h2>Talents We Have Worked With</h2>
           <div className="line"></div>

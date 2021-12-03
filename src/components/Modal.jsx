@@ -27,41 +27,26 @@ const Modal = ({ setShow, showIcon, show, children }) => {
   }
 
   return (
-    <div
-      // initial={false}
-      // animate={show ? 'open' : 'closed'}
-      className={showHideClassName}
-    >
+    <div className={showHideClassName}>
       <motion.div
         variants={variants}
         animate={show ? 'open' : 'closed'}
         transition={{ duration: 0.5 }}
         className="general-modal-container"
       >
-        {showIcon && (
-          <nav className="mobile-nav">
-            <div>
-              <Link href="/">
-                <a onClick={() => setShow((prev) => !prev)}>
-                  <Image src={Logo} alt="..." />
-                </a>
-              </Link>
-            </div>
+        <nav className={showIcon ? 'mobile-nav' : 'mobile-nav contact'}>
+          <div className="logo">
+            <Link href="/">
+              <a onClick={() => setShow((prev) => !prev)}>
+                <Image src={Logo} alt="..." />
+              </a>
+            </Link>
+          </div>
 
-            <div onClick={() => setShow((prev) => !prev)}>
-              <Image src={Cancel} alt="..." />
-            </div>
-          </nav>
-        )}
-
-        {!showIcon && (
-          <div
-            className="cancel-button"
-            onClick={() => setShow((prev) => !prev)}
-          >
+          <div onClick={() => setShow((prev) => !prev)}>
             <Image src={Cancel} alt="..." />
           </div>
-        )}
+        </nav>
 
         {children}
       </motion.div>

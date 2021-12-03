@@ -1,5 +1,5 @@
 .How {
-  min-height: 500px;
+  min-height: 550px;
   height: 100%;
   margin: auto;
   display: grid;
@@ -80,11 +80,12 @@
         @include media('<=tablet') {
           grid-template-columns: 1fr 6fr;
         }
-        p:nth-of-type(1) {
+        .card-title {
           font-family: inherit;
           font-style: normal;
           font-weight: normal;
           font-size: 20px;
+          line-height: 1.7;
           color: #ffffff;
           margin-bottom: 20px;
           position: relative;

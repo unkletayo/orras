@@ -5,10 +5,19 @@
   font-weight: 400;
   font-display: swap;
 }
+
+@font-face {
+  font-family: 'Tiempos Headline Light';
+  src: url('../../public/fonts/Tiempos/TiemposHeadline-Light.otf');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 @font-face {
   font-family: 'Gotham';
   src: url('../../public/fonts/Gotham/GothamBook.ttf');
   font-style: medium;
-  font-weight: 500;
+  font-weight: 400;
   font-display: swap;
 }

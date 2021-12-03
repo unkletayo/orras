@@ -39,7 +39,7 @@ const carouselItem = {
 
 const Slides = () => {
   return (
-    <div className="Slides">
+    <div id="work-section" className="Slides">
       <Carousel {...carouselItem}>
         {images.map((img, idx) => (
           <div key={idx}>

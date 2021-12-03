@@ -50,7 +50,7 @@ const Services = () => {
               <Img src={data.image} alt="..." />
             </div>
             <div className="How-Card-text">
-              <p>{data.title}</p>
+              <p className="card-title">{data.title}</p>
               <p>{data.description}</p>
             </div>
           </div>
