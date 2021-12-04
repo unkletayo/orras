@@ -60,18 +60,17 @@ const bottomTestimonies = [
 ]
 
 const Testimonial = () => {
-  const [show, setShow] = useState(false)
   const variants = {
     open: { opacity: 1, x: 0 },
     closed: { opacity: 0, x: '-100%' },
   }
 
   const showTestimony = (testimony) =>{
-    return testimony?.showTestimony= true
+    console.log(testimony);
   }
 
   const removeTestimony = (testimony) =>{
-    return testimony?.showTestimony= false
+    console.log(testimony);
   }
 
   return (
@@ -82,55 +81,29 @@ const Testimonial = () => {
 
       <AnimatePresence>
         <div className="Testimonials-feeds">
-          {topTestimonies?.map((testimony) => (
-            <div
-              key={testimony.class}
-              onMouseLeave={()=>removeTestimony(testimony)}
-              className={`Testimony ${testimony.class}`}
-            >
-              <Image src={testimony.image} alt="..." />
-              <div
-                onClick={()=>showTestimony(testimony)}
-                className="Testimony-banner"
-              >
-                {!testimony.showTestimony && <Image src={Bubble} alt="..." />}
-              </div>
-              {testimony.showTestimony && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.4 }}
-                  className="Testimony-statement"
-                >
-                  <div className="vector-cover">
-                    <div className="vector">
-                      <p>{testimony.word}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-            </div>
-          ))}
-
-          {/* <div className="Testimony five">
-            <Image src={Testimony1} alt="..." />
-            <div className="Testimony-banner">
-              <Image src={Bubble} alt="..." />
-            </div>
-          </div>
-          <div className="Testimony seven">
-            <Image src={Testimony1} alt="..." />
-            <div className="Testimony-banner">
-              <Image src={Bubble} alt="..." />
-            </div>
-          </div> */}
+          {topTestimonies?.map((testimony, index) => (
+          <TestimonyComponent key={index} testimony={testimony}/>
+        ))}
         </div>
       </AnimatePresence>
 
       <div className="Testimonials-feed">
-        {bottomTestimonies?.map((testimony) => (
-          <div
+        {bottomTestimonies?.map((testimony, index) => (
+          <TestimonyComponent key={index} testimony={testimony}/>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+export default Testimonial
+
+
+const TestimonyComponent = ({testimony})=> {
+  const [show, setShow] = useState(false)
+
+  return (         
+<div
             key={testimony.class}
             onMouseLeave={() => setShow(false)}
             className={`Testimony ${testimony.class}`}
@@ -157,35 +130,5 @@ const Testimonial = () => {
                 </div>
               </motion.div>
             )}
-          </div>
-        ))}
-        {/* <div className="Testimony two">
-          <Image src={Testimony1} alt="..." />
-          <div className="Testimony-banner">
-            <Image src={Bubble} alt="..." />
-          </div>
-        </div>
-        <div className="Testimony four">
-          <Image src={Testimony1} alt="..." />
-          <div className="Testimony-banner">
-            <Image src={Bubble} alt="..." />
-          </div>
-        </div>
-        <div className="Testimony six">
-          <Image src={Testimony1} alt="..." />
-          <div className="Testimony-banner">
-            <Image src={Bubble} alt="..." />
-          </div>
-        </div>
-        <div className="Testimony eight">
-          <Image src={Testimony1} alt="..." />
-          <div className="Testimony-banner">
-            <Image src={Bubble} alt="..." />
-          </div>
-        </div> */}
-      </div>
-    </div>
-  )
+          </div>)
 }
-
-export default Testimonial
