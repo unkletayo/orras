@@ -108,14 +108,28 @@
       font-size: 13px;
       line-height: 10px;
       color: #000000;
-      max-width: 150px;
+      max-width: 160px;
       top: 0px;
-      right: -120px;
-      padding: 10px 20px;
+      padding: 5px 20px;
       background: url('../../public/img/bubble.svg');
       background-repeat: no-repeat;
       background-size: contain;
-      background-position: 20px right;
+      // background-position: 20px right;
+
+      &.left{
+        right: -120px;
+        @include media('<=tablet') {
+                left: -120px;
+      }
+      }
+
+      &.right{
+        right: -120px;
+
+                @include media('<=tablet') {
+                right: -120px;
+      }
+      }
     }
   }
 }

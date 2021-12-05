@@ -17,19 +17,21 @@ const topTestimonies = [
     image: Testimony1,
     word: `My music has touched 10 million + people since i released my
            E.p in 2021.`,
-    showTestimony: false
+  tilt: false,
   },
   {
     class: 'five',
     image: Testimony2,
     word: `My music has touched 10 million + people since i released my
            E.p in 2021.`,
+    tilt: false,
   },
   {
     class: 'seven',
     image: Testimony3,
     word: `My music has touched 10 million + people since i released my
            E.p in 2021.`,
+    tilt: true,
   },
 ]
 const bottomTestimonies = [
@@ -38,24 +40,32 @@ const bottomTestimonies = [
     image: Testimony4,
     word: `My music has touched 10 million + people since i released my
            E.p in 2021.`,
+    tilt: false,
   },
   {
     class: 'four',
     image: Testimony5,
     word: `My music has touched 10 million + people since i released my
            E.p in 2021.`,
+    tilt: false,
+    
+
   },
   {
     class: 'six',
     image: Testimony6,
     word: `My music has touched 10 million + people since i released my
            E.p in 2021.`,
+    tilt: true,
+
   },
   {
     class: 'eight',
     image: Testimony7,
     word: `My music has touched 10 million + people since i released my
            E.p in 2021.`,
+    tilt: false,
+
   },
 ]
 
@@ -63,14 +73,6 @@ const Testimonial = () => {
   const variants = {
     open: { opacity: 1, x: 0 },
     closed: { opacity: 0, x: '-100%' },
-  }
-
-  const showTestimony = (testimony) =>{
-    console.log(testimony);
-  }
-
-  const removeTestimony = (testimony) =>{
-    console.log(testimony);
   }
 
   return (
@@ -121,7 +123,7 @@ const TestimonyComponent = ({testimony})=> {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.4 }}
-                className="Testimony-statement"
+                className={`Testimony-statement ${testimony.tilt ? "left" : "right" }`}
               >
                 <div className="vector-cover">
                   <div className="vector">

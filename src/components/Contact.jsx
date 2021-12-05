@@ -24,6 +24,7 @@ const Contact = () => {
           <Image src={RightArrow} alt="..." />{' '}
         </button>
       </div>
+      
       <Modal show={show} showIcon={false} setShow={setShow}>
         <div className="content">
           <div className="content-items">

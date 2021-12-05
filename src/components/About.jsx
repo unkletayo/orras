@@ -48,7 +48,7 @@ const transition = {
     repeatType: 'reverse',
   },
 }
-
+// 921665
 const About = () => {
   const inRef = useRef(null)
   const outRef = useRef(null)

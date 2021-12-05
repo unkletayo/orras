@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence,useAnimation } from 'framer-motion'
 import SpotLight from '../../../public/img/spotlight.png'
 import { useMediaQuery } from '../../hooks/useMediaQuery'
 import DownArrow from '../../../public/img/down-arrow.svg'
@@ -28,8 +28,24 @@ const Hero = () => {
     },
   }
 
+  const divAnimationVariants = {
+  init: {
+    y: 0,
+  },
+  anim: {
+    y: -20,
+  },
+}
+
+
   const inRef = useRef(null)
   const outRef = useRef(null)
+  const hope=()=>{
+    console.log("Heiroror")
+    setIsHovered(true)
+  }
+  const divAnimationControls = useAnimation()
+
   return (
     <div className={`${showIcon ? 'hero hero-logo' : 'hero hero-artiste'}`}>
       <div className={`heroText`}>
@@ -40,7 +56,13 @@ const Hero = () => {
                 <motion.div
                   ref={inRef}
                   initial={{ y: -inRef?.current?.height, x: 0, opacity: 0 }}
-                  animate={{ x: 0, y: 0, opacity: 1 }}
+                  animate={{ x: 0, y: 0, opacity: 1, transition:{
+                    				transition: {
+	        type: "tween",
+	        repeat: 1,
+	        // repeatType: "reverse",
+	      },
+                  } }}
                   exit={{
                     y: inRef?.current?.height,
                     height: 0,
@@ -76,7 +98,11 @@ const Hero = () => {
             <motion.div
               ref={outRef}
               initial={{ y: outRef?.current?.height, opacity: 0 }}
-              animate={{ x: 0, y: 0, opacity: 1 }}
+              animate={{ x: 0, y: 0, transition: {
+	        type: "tween",
+	        repeat: 0,
+	        // repeatType: "reverse",
+	      }, opacity: 1 }}
               exit={{
                 y: outRef?.current?.height,
                 height: 0,
@@ -106,29 +132,29 @@ const Hero = () => {
           )}
         </AnimatePresence>
       </div>
-
+{!isPageWide && (
       <div className={`heroImage`}>
-        <AnimatePresence exitBeforeEnter>
+        <AnimatePresence>
           {showIcon ? (
             <motion.div
               showIcon={showIcon}
               transition={transition}
-              isPageWide={isPageWide}
-              onMouseEnter={() => setIsHovered(false)}
-              onMouseLeave={() => setIsHovered(false)}
               className="mobile-artiste set"
             >
-              <div
+            <motion.div
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
-                className="hover-area"
-              ></div>
+                className="mhover-area"
+              ></motion.div>
+              
             </motion.div>
           ) : (
             <motion.div className="mobile-logo set"></motion.div>
           )}
         </AnimatePresence>
       </div>
+)}
+
 
       <div className="toggles">
         <div onClick={() => setShowIcon(false)} className="toggle">
@@ -139,18 +165,19 @@ const Hero = () => {
         </div>
       </div>
 
-      {isHovered && !showIcon && (
+      {showIcon  && (
         <motion.div
-          initial={{ x: 0, opacity: 0 }}
+         
+          className="spotlight"
+        >
+        {isHovered && <motion.Image  
+        initial={{ x: 0, opacity: 0 }}
           transition={{
             duration: 0.6,
             ease: [0.43, 0.13, 0.23, 0.96],
           }}
           animate={{ x: 0, opacity: 1 }}
-          exit={{ x: 50, opacity: 0 }}
-          className="spotlight"
-        >
-          <Image src={SpotLight} alt="Artiste" />
+          exit={{ x: 50, opacity: 0 }} src={SpotLight} alt="Artiste" /> }
         </motion.div>
       )}
     </div>
