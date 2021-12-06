@@ -53,14 +53,18 @@ const upVariant = {
 
 const Hero = () => {
   const [showIcon, setShowIcon] = useState(false)
-  const [isHovered, setIsHovered] = useState(false)
-  const hoverRef = useRef()
   const router = useRouter()
   const isPageWide = useMediaQuery('(min-width: 768px)')
-
-  // useEffect(() => {
-  //   hS()
-  // }, [hoverRef])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const tick = () => {
+    setShowIcon(!showIcon)
+  }
+  useEffect(() => {
+    const timerID = setInterval(() => tick(), 3000)
+    return () => {
+      clearInterval(timerID)
+    }
+  }, [tick])
 
   return (
     <div className={`${showIcon ? 'hero hero-logo' : 'hero hero-artiste'}`}>
