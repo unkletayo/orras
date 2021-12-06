@@ -41,19 +41,20 @@
     }
   }
   .How-header {
-    font-family: 'Tiempos Headline', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 3vw;
-    line-height: 1.6;
-    color: #ffffff;
-    margin-bottom: 10px;
-    position: relative;
-
-    @include media('<=tablet') {
-      font-size: 7vw;
+      font-family: 'Tiempos Headline Light', sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 36px;
+      line-height: 1.5;
       text-align: center;
-    }
+      color: #ffffff;
+
+      @include media('<=tablet') {
+        font-size: 34px;
+        text-align: left;
+        padding: 0;
+        margin: 0;
+      }
   }
   .How-cards {
     display: grid;
