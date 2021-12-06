@@ -48,6 +48,23 @@ const transition = {
     repeatType: 'reverse',
   },
 }
+
+const containerVariants = {
+  hidden: {
+    opacity: 0,
+    x: '50vw',
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { type: 'spring', delay: 0.1 },
+  },
+  exit: {
+    x: '-50vh',
+    opacity: 1,
+    transition: { ease: 'easeInOut' },
+  },
+}
 // 921665
 const About = () => {
   const inRef = useRef(null)
@@ -67,16 +84,10 @@ const About = () => {
           <AnimatePresence exitBeforeEnter>
             {animateAbout ? (
               <motion.div
-                ref={inRef}
-                initial={{ x: -inRef?.current?.width, y: 0, opacity: 0 }}
-                animate={{ x: 0, y: 0, opacity: 1 }}
-                exit={{
-                  x: inRef?.current?.width,
-                  // height: 0,
-                  // width: 0,
-                  opacity: 0,
-                }}
-                transition={{ ...transition }}
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
                 key="1"
                 className="first-set set"
               >
@@ -110,16 +121,10 @@ const About = () => {
               </motion.div>
             ) : (
               <motion.div
-                ref={outRef}
-                initial={{ x: outRef?.current?.width, opacity: 0 }}
-                animate={{ x: 0, y: 0, opacity: 1 }}
-                exit={{
-                  x: outRef?.current?.width,
-                  // height: 0,
-                  // width: 50,
-                  opacity: 0,
-                }}
-                transition={{ ...transition }}
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
                 key="2"
                 className="second-set set"
               >

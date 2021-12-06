@@ -1,0 +1,35 @@
+.Preloader {
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .image-container {
+    // background: url('../../public/img/Loader.png');
+    // background-repeat: no-repeat;
+    // background-position: center;
+    // background-size: cover;
+    height: 416px;
+    width: 416px;
+    animation: monFrame 5s linear 2s infinite alternate;
+    // border: 1px solid red;
+  }
+
+  @keyframes monFrame {
+    0% {
+      transform: scale(0.2);
+    }
+    25% {
+      transform: scale(0.4);
+    }
+    50% {
+      transform: scale(0.6);
+    }
+    75% {
+      transform: scale(0.8);
+    }
+    100% {
+      transform: scale(1.1);
+    }
+  }
+}

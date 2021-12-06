@@ -1,50 +1,66 @@
 import { useRef, useState, useEffect } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import { motion, AnimatePresence,useAnimation } from 'framer-motion'
+import { motion, AnimatePresence, useAnimation } from 'framer-motion'
 import SpotLight from '../../../public/img/spotlight.png'
 import { useMediaQuery } from '../../hooks/useMediaQuery'
 import DownArrow from '../../../public/img/down-arrow.svg'
-// import Artiste from '../../../public/img/Artiste big.png'
+import Logo from '../../../public/img/hero-logo.png'
+import Artiste from '../../../public/img/Artiste.png'
+
+const containerVariants = {
+  hidden: {
+    opacity: 0,
+    y: '20vh',
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    x: 0,
+    transition: { type: 'spring', ease: 'easeIn', delay: 0.1 },
+  },
+  exit: {
+    y: '-20vh',
+    transition: { ease: 'easeInOut' },
+  },
+}
+
+const vVariants = {
+  hidden: {
+    opacity: 0,
+    x: '20vw',
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { type: 'spring', ease: 'easeIn', delay: 0.1 },
+  },
+  exit: {
+    x: '-20vw',
+    x2: '-30vw',
+    transition: { ease: 'easeInOut' },
+  },
+}
+
+const upVariant = {
+  ...containerVariants,
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: 'spring', ease: 'easeIn', delay: 0.1 },
+  },
+}
 
 const Hero = () => {
   const [showIcon, setShowIcon] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
+  const hoverRef = useRef()
   const router = useRouter()
   const isPageWide = useMediaQuery('(min-width: 768px)')
 
-  const handleAnimation = () => {
-    setShowIcon((prev) => !prev)
-  }
-
-  const transition = {
-    duration: 0.6,
-    transition: {
-      delay: 1,
-      duration: 2,
-      ease: [0.075, 0.82, 0.165, 1],
-      repeat: Infinity,
-      repeatType: 'reverse',
-    },
-  }
-
-  const divAnimationVariants = {
-  init: {
-    y: 0,
-  },
-  anim: {
-    y: -20,
-  },
-}
-
-
-  const inRef = useRef(null)
-  const outRef = useRef(null)
-  const hope=()=>{
-    console.log("Heiroror")
-    setIsHovered(true)
-  }
-  const divAnimationControls = useAnimation()
+  // useEffect(() => {
+  //   hS()
+  // }, [hoverRef])
 
   return (
     <div className={`${showIcon ? 'hero hero-logo' : 'hero hero-artiste'}`}>
@@ -52,25 +68,16 @@ const Hero = () => {
         <AnimatePresence exitBeforeEnter>
           {!showIcon ? (
             <>
-              <>
-                <motion.div
-                  ref={inRef}
-                  initial={{ y: -inRef?.current?.height, x: 0, opacity: 0 }}
-                  animate={{ x: 0, y: 0, opacity: 1, transition:{
-                    				transition: {
-	        type: "tween",
-	        repeat: 1,
-	        // repeatType: "reverse",
-	      },
-                  } }}
-                  exit={{
-                    y: inRef?.current?.height,
-                    height: 0,
-                    opacity: 0,
-                  }}
-                  transition={{ ...transition }}
-                  key="1"
-                >
+              <motion.div
+                variants={isPageWide ? containerVariants : vVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                key="1"
+                div
+                className="other-hero"
+              >
+                <div>
                   <h1>Make The {isPageWide && <br />} World Listen</h1>
                   <p className="hero-description">
                     Your talent should not be hidden or sealed away in uncut
@@ -86,75 +93,84 @@ const Hero = () => {
                       <Image src={DownArrow} alt="..." />
                     </span>
                   </button>
-                </motion.div>
-              </>
-              <div
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-                className="hover-area"
-              ></div>
+                </div>
+                <div className="other-hero-image pc">
+                  <div className="spotlight">
+                    <Image src={SpotLight} alt="Artiste" />
+                  </div>
+                </div>
+              </motion.div>
             </>
           ) : (
             <motion.div
-              ref={outRef}
-              initial={{ y: outRef?.current?.height, opacity: 0 }}
-              animate={{ x: 0, y: 0, transition: {
-	        type: "tween",
-	        repeat: 0,
-	        // repeatType: "reverse",
-	      }, opacity: 1 }}
-              exit={{
-                y: outRef?.current?.height,
-                height: 0,
-                opacity: 0,
-              }}
-              transition={{ ...transition }}
+              variants={isPageWide ? upVariant : vVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
               key="2"
+              className="other-hero"
             >
-              <h1>Welcome to {isPageWide && <br />} Orras Entertainment </h1>
-              <p className="hero-description">
-                At Orras, we position ourselves as an entity dedicated to high
-                standards and meticulous attention to details. The future is
-                music and we are creating that future by building a structure
-                that provides artistes the right channel for music promotion and
-                distribution.
-              </p>
-              <button
-                onClick={() => router.push('/#contact-section')}
-                className="cta-button"
-              >
-                Lets get you out there{' '}
-                <span>
-                  <Image src={DownArrow} alt="..." />
-                </span>
-              </button>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-{!isPageWide && (
-      <div className={`heroImage`}>
-        <AnimatePresence>
-          {showIcon ? (
-            <motion.div
-              showIcon={showIcon}
-              transition={transition}
-              className="mobile-artiste set"
-            >
-            <motion.div
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-                className="mhover-area"
-              ></motion.div>
-              
-            </motion.div>
-          ) : (
-            <motion.div className="mobile-logo set"></motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-)}
+              <div>
+                <h1>Welcome to {isPageWide && <br />} Orras Entertainment </h1>
+                <p className="hero-description">
+                  At Orras, we position ourselves as an entity dedicated to high
+                  standards and meticulous attention to details. The future is
+                  music and we are creating that future by building a structure
+                  that provides artistes the right channel for music promotion
+                  and distribution.
+                </p>
+                <button
+                  onClick={() => router.push('/#contact-section')}
+                  className="cta-button"
+                >
+                  Lets get you out there{' '}
+                  <span>
+                    <Image src={DownArrow} alt="..." />
+                  </span>
+                </button>
+              </div>
 
+              <div className="other-hero-image pc">
+                <Image src={Logo} alt="..." />
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+      {!isPageWide && (
+        <div className={`heroImage`}>
+          <AnimatePresence>
+            {showIcon ? (
+              <motion.div className="mobile-artiste set">
+                <motion.div
+                  showIcon={showIcon}
+                  variants={containerVariants}
+                  initial="hidden"
+                  animate="visible"
+                  className="other-hero-image"
+                >
+                  <Image src={Artiste} alt="..." />
+                  <div className="spotlight">
+                    <Image src={SpotLight} alt="Artiste" />
+                  </div>
+                </motion.div>
+              </motion.div>
+            ) : (
+              <motion.div className="mobile-logo set">
+                <motion.div
+                  showIcon={showIcon}
+                  variants={vVariants}
+                  initial="hidden"
+                  animate="visible"
+                  className="other-hero-image"
+                >
+                  <Image src={Logo} alt="..." />
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      )}
 
       <div className="toggles">
         <div onClick={() => setShowIcon(false)} className="toggle">
@@ -164,22 +180,26 @@ const Hero = () => {
           <motion.span className={`${showIcon && 'show'}`}></motion.span>
         </div>
       </div>
-
-      {showIcon  && (
-        <motion.div
-         
-          className="spotlight"
-        >
-        {isHovered && <motion.Image  
-        initial={{ x: 0, opacity: 0 }}
-          transition={{
-            duration: 0.6,
-            ease: [0.43, 0.13, 0.23, 0.96],
-          }}
-          animate={{ x: 0, opacity: 1 }}
-          exit={{ x: 50, opacity: 0 }} src={SpotLight} alt="Artiste" /> }
+      {/* <div className="spotlight">
+        <motion.Image src={SpotLight} alt="Artiste" />
+      </div> */}
+      {/* {showIcon && (
+        <motion.div className="spotlight">
+          {isHovered && (
+            <motion.Image
+              initial={{ x: 0, opacity: 0 }}
+              transition={{
+                duration: 0.6,
+                ease: [0.43, 0.13, 0.23, 0.96],
+              }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: 50, opacity: 0 }}
+              src={SpotLight}
+              alt="Artiste"
+            />
+          )}
         </motion.div>
-      )}
+      )} */}
     </div>
   )
 }

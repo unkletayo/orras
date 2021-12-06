@@ -4,6 +4,7 @@ import { useState } from 'react'
 import RightArrow from '../../public/img/arrow-right.png'
 import Logo from '../../public/img/orass-logo.png'
 import Modal from './Modal'
+import Cancel from '../../public/img/cancel.svg'
 
 const Contact = () => {
   const [show, setShow] = useState(false)
@@ -24,12 +25,17 @@ const Contact = () => {
           <Image src={RightArrow} alt="..." />{' '}
         </button>
       </div>
-      
+
       <Modal show={show} showIcon={false} setShow={setShow}>
+        <nav className="mobile-nav contact">
+          <div onClick={() => setShow((prev) => !prev)}>
+            <Image src={Cancel} alt="..." />
+          </div>
+        </nav>
         <div className="content">
           <div className="content-items">
             <div className="logo-icon">
-              <Image src={Logo} alt="logo" />
+              <Image unoptimized src={Logo} alt="logo" />
             </div>
 
             <div className="content-cta">

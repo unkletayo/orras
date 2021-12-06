@@ -128,9 +128,12 @@
         position: absolute;
         border-radius: 50%;
         top: -5px;
-        right: 42%;
+        left: 55%;
         @include media('<=tablet') {
           display: none;
+        }
+        @include media('>=2000px') {
+          left: 53%;
         }
       }
     }
@@ -141,14 +144,18 @@
     justify-content: center;
     flex-direction: column;
     .set {
-      max-width: 800px;
+      max-width: 70%;
       display: flex;
       justify-content: space-evenly;
-      margin-left: 250px;
+      margin-left: 20%;
+      // margin-left: 250px;
       // @include media('<=tablet') {
       //   flex-direction: column;
       //   margin-left: 0;
       // }
+      @include media('>=2000px') {
+        margin-left: 15%;
+      }
     }
 
     .second-set {

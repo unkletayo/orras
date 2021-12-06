@@ -3,6 +3,7 @@ import Sticky from 'react-stickynode'
 import Image from 'next/image'
 import Logo from '../../public/img/orass-logo.png'
 import Menu from '../../public/img/menu.svg'
+import Cancel from '../../public/img/cancel.svg'
 
 // import { AiOutlineMenu } from 'react-icons/ai'
 import { useState } from 'react'
@@ -79,6 +80,19 @@ const Navigation = () => {
       )}
 
       <Modal className show={show} showIcon setShow={setShow}>
+        <nav className={'mobile-nav'}>
+          <div className="logo">
+            <Link href="/">
+              <a onClick={() => setShow((prev) => !prev)}>
+                <Image unoptimized src={Logo} alt="..." />
+              </a>
+            </Link>
+          </div>
+
+          <div onClick={() => setShow((prev) => !prev)}>
+            <Image src={Cancel} alt="..." />
+          </div>
+        </nav>
         <div className="mobile-modal">
           <nav className="navigation">
             <li onClick={() => setShow((prev) => !prev)}>

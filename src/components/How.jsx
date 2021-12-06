@@ -46,13 +46,13 @@ const Services = () => {
       <div className="How-cards">
         {servicesData.map((data, idx) => (
           <div key={idx} className="How-card">
-            <div style={{ height: 40, width: 40 }} className="How-card-logo">
+            <span style={{ height: 40, width: 40 }} className="How-card-logo">
               <Img src={data.image} alt="..." />
-            </div>
-            <div className="How-Card-text">
-              <p className="card-title">{data.title}</p>
-              <p>{data.description}</p>
-            </div>
+            </span>
+            <span className="How-Card-text">
+              <span className="card-title">{data.title}</span>
+              <span>{data.description}</span>
+            </span>
           </div>
         ))}
       </div>

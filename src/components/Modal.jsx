@@ -26,15 +26,34 @@ const Modal = ({ setShow, showIcon, show, children }) => {
     },
   }
 
+  const containerVariants = {
+    hidden: {
+      opacity: 0,
+      x: '100vw',
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { type: 'spring', delay: 0.5 },
+    },
+    exit: {
+      x: '-100vh',
+      transition: { ease: 'easeInOut' },
+      clipPath: 'circle(30px at 40px 40px)',
+    },
+  }
+
   return (
     <div className={showHideClassName}>
       <motion.div
-        variants={variants}
-        animate={show ? 'open' : 'closed'}
-        transition={{ duration: 0.5 }}
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
         className="general-modal-container"
       >
-        <nav className={showIcon ? 'mobile-nav' : 'mobile-nav contact'}>
+        <div className="okay">{children}</div>
+        {/* <nav className={showIcon ? 'mobile-nav' : 'mobile-nav contact'}>
           <div className="logo">
             <Link href="/">
               <a onClick={() => setShow((prev) => !prev)}>
@@ -46,9 +65,7 @@ const Modal = ({ setShow, showIcon, show, children }) => {
           <div onClick={() => setShow((prev) => !prev)}>
             <Image src={Cancel} alt="..." />
           </div>
-        </nav>
-
-        {children}
+        </nav> */}
       </motion.div>
     </div>
   )
