@@ -60,7 +60,7 @@ const Hero = () => {
     setShowIcon(!showIcon)
   }
   useEffect(() => {
-    const timerID = setInterval(() => tick(), 3000)
+    const timerID = setInterval(() => tick(), 3500)
     return () => {
       clearInterval(timerID)
     }
