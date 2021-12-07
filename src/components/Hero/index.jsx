@@ -60,7 +60,7 @@ const Hero = () => {
     setShowIcon(!showIcon)
   }
   useEffect(() => {
-    const timerID = setInterval(() => tick(), 5000)
+    const timerID = setInterval(() => tick(), 10000)
     return () => {
       clearInterval(timerID)
     }
@@ -184,26 +184,6 @@ const Hero = () => {
           <motion.span className={`${showIcon && 'show'}`}></motion.span>
         </div>
       </div>
-      {/* <div className="spotlight">
-        <motion.Image src={SpotLight} alt="Artiste" />
-      </div> */}
-      {/* {showIcon && (
-        <motion.div className="spotlight">
-          {isHovered && (
-            <motion.Image
-              initial={{ x: 0, opacity: 0 }}
-              transition={{
-                duration: 0.6,
-                ease: [0.43, 0.13, 0.23, 0.96],
-              }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: 50, opacity: 0 }}
-              src={SpotLight}
-              alt="Artiste"
-            />
-          )}
-        </motion.div>
-      )} */}
     </div>
   )
 }

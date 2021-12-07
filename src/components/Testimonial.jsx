@@ -17,20 +17,18 @@ const topTestimonies = [
     image: Testimony1,
     word: `My music has touched 10 million + people since i released my
            E.p in 2021.`,
-  tilt: false,
+    tilt: false,
   },
   {
     class: 'five',
     image: Testimony2,
-    word: `My music has touched 10 million + people since i released my
-           E.p in 2021.`,
+    word: `After I created my E.P, Orras helped with getting traction and global visibility.`,
     tilt: false,
   },
   {
     class: 'seven',
     image: Testimony3,
-    word: `My music has touched 10 million + people since i released my
-           E.p in 2021.`,
+    word: `I used to run solo in the past 4 years but things changed when my friend referred Orras in June`,
     tilt: true,
   },
 ]
@@ -38,34 +36,26 @@ const bottomTestimonies = [
   {
     class: 'two',
     image: Testimony4,
-    word: `My music has touched 10 million + people since i released my
-           E.p in 2021.`,
+    word: `One of the things i love about my experience is that i got what they promised`,
     tilt: false,
   },
   {
     class: 'four',
     image: Testimony5,
-    word: `My music has touched 10 million + people since i released my
-           E.p in 2021.`,
+    word: `Besides giving me a good promotion. They believed in my music. It felt great and i would definitely recommend them to independent artists.`,
     tilt: false,
-    
-
   },
   {
     class: 'six',
     image: Testimony6,
-    word: `My music has touched 10 million + people since i released my
-           E.p in 2021.`,
+    word: `I love how the team are passionate about my project and show genuine concern for my music.`,
     tilt: true,
-
   },
   {
     class: 'eight',
     image: Testimony7,
-    word: `My music has touched 10 million + people since i released my
-           E.p in 2021.`,
+    word: `Ran a successful  campaign with Orras! They're extremely communicative and believe in the music they're working to promote.`,
     tilt: false,
-
   },
 ]
 
@@ -84,14 +74,14 @@ const Testimonial = () => {
       <AnimatePresence>
         <div className="Testimonials-feeds">
           {topTestimonies?.map((testimony, index) => (
-          <TestimonyComponent key={index} testimony={testimony}/>
-        ))}
+            <TestimonyComponent key={index} testimony={testimony} />
+          ))}
         </div>
       </AnimatePresence>
 
       <div className="Testimonials-feed">
         {bottomTestimonies?.map((testimony, index) => (
-          <TestimonyComponent key={index} testimony={testimony}/>
+          <TestimonyComponent key={index} testimony={testimony} />
         ))}
       </div>
     </div>
@@ -100,37 +90,37 @@ const Testimonial = () => {
 
 export default Testimonial
 
-
-const TestimonyComponent = ({testimony})=> {
+const TestimonyComponent = ({ testimony }) => {
   const [show, setShow] = useState(false)
 
-  return (         
-<div
-            key={testimony.class}
-            onMouseLeave={() => setShow(false)}
-            className={`Testimony ${testimony.class}`}
-          >
-            <Image src={testimony.image} alt="..." />
-            <div
-              onClick={() => setShow((prev) => !prev)}
-              className="Testimony-banner"
-            >
-              {!show && <Image src={Bubble} alt="..." />}
+  return (
+    <div
+      key={testimony.class}
+      onMouseLeave={() => setShow(false)}
+      className={`Testimony ${testimony.class}`}
+    >
+      <Image src={testimony.image} alt="..." />
+      <div
+        onClick={() => setShow((prev) => !prev)}
+        className="Testimony-banner"
+      >
+        {!show && <Image src={Bubble} alt="..." />}
+      </div>
+      {show && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.4 }}
+          className={`Testimony-statement ${testimony.tilt ? 'left' : 'right'}`}
+        >
+          <div className="vector-cover">
+            <div className="vector">
+              <p>{testimony.word}</p>
             </div>
-            {show && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.4 }}
-                className={`Testimony-statement ${testimony.tilt ? "left" : "right" }`}
-              >
-                <div className="vector-cover">
-                  <div className="vector">
-                    <p>{testimony.word}</p>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </div>)
+          </div>
+        </motion.div>
+      )}
+    </div>
+  )
 }

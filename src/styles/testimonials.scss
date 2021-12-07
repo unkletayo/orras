@@ -108,27 +108,30 @@
       font-size: 13px;
       line-height: 10px;
       color: #000000;
-      max-width: 160px;
+      max-width: 180px;
       top: 0px;
-      padding: 5px 20px;
+      padding: 10px 20px;
       background: url('../../public/img/bubble.svg');
       background-repeat: no-repeat;
       background-size: contain;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       // background-position: 20px right;
 
-      &.left{
-        right: -120px;
+      &.left {
+        right: -150px;
         @include media('<=tablet') {
-                left: -120px;
-      }
+          left: -150px;
+        }
       }
 
-      &.right{
-        right: -120px;
+      &.right {
+        right: -150px;
 
-                @include media('<=tablet') {
-                right: -120px;
-      }
+        @include media('<=tablet') {
+          right: -150px;
+        }
       }
     }
   }

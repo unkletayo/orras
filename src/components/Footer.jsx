@@ -7,13 +7,25 @@ const Footer = () => {
   return (
     <div className="Footer">
       <div className="Footer-links">
-        <a href="!#">
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://facebook.com/orras_ent"
+        >
           <Image src={Facebook} alt="..." />
         </a>
-        <a href="!#">
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://twitter.com/orras_ent"
+        >
           <Image src={Twitter} alt="..." />
         </a>{' '}
-        <a href="!#">
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://instagram.com/orras_ent"
+        >
           <Image src={Instagram} alt="..." />
         </a>
       </div>

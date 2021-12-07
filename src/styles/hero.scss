@@ -45,13 +45,15 @@
       font-style: normal;
       font-weight: normal;
       font-size: 65px;
-      line-height: 1.1;
+      // line-height: 1.1;
       display: flex;
       align-items: center;
       color: #ffffff;
+      margin: 0;
+      padding: 0;
       @include media('<=tablet') {
         font-size: 40px;
-        line-height: 1.5;
+        // line-height: 1.5;
         width: 250px;
       }
     }
@@ -59,7 +61,8 @@
     .hero-description {
       font-family: 'Gotham', sans-serif;
       width: 550px;
-      margin: 30px 0;
+      padding: 0;
+      margin: 10px 0;
       line-height: 1.4;
       font-size: 20px;
       font-weight: 400;
@@ -204,7 +207,12 @@
     top: -50%;
     right: 4%;
     transform: scale(5) scale3d(10);
-    transition: transform 0.5s ease;
+    transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    -webkit-transition: opacity 500ms ease;
+    -moz-transition: opacity 500ms ease;
+    -ms-transition: opacity 500ms ease;
+    -o-transition: opacity 500ms ease;
+    transition: opacity 2000ms ease;
     display: none;
 
     @include media('<=tablet') {
