@@ -10,24 +10,12 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 import Modal from './Modal'
+
+
 const Navigation = () => {
   const [show, setShow] = useState(false)
 
-  const transition = {
-    y: {
-      duration: 0.4,
-      // yoyo: Infinity,
-      ease: 'easeOut',
-    },
-    duration: 0.6,
-    ease: [0.43, 0.13, 0.23, 0.96],
-  }
 
-  const list = {
-    initial: { y: 0, opacity: 0 },
-    animate: { y: 0, opacity: 1 },
-    exit: { y: -50, opacity: 0 },
-  }
 
   return (
     <div className={'Navigation'}>
@@ -45,7 +33,11 @@ const Navigation = () => {
         <li>
           <Link href="/">
             <a>
-              <Image src={Logo} alt="..." />
+              <Image          
+               quality="1"
+             unoptimized={true}
+             objectFit="contain" 
+          src={Logo} alt="..." />
             </a>
           </Link>{' '}
         </li>

@@ -6,13 +6,15 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
+  @include media('<=tablet') {
+    padding: 20px 0;
+  }
   .Footer-links {
     display: flex;
     align-items: center;
     justify-content: center;
     max-width: max-content;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     a {
       display: flex;
       align-items: center;

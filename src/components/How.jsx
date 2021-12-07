@@ -47,7 +47,9 @@ const Services = () => {
         {servicesData.map((data, idx) => (
           <div key={idx} className="How-card">
             <span style={{ height: 40, width: 40 }} className="How-card-logo">
-              <Img src={data.image} alt="..." />
+              <Img           quality="1"
+          unoptimized={true}
+          objectFit="contain" src={data.image} alt="..." />
             </span>
             <span className="How-Card-text">
               <span className="card-title">{data.title}</span>

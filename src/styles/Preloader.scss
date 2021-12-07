@@ -11,7 +11,7 @@
     // background-size: cover;
     height: 416px;
     width: 416px;
-    animation: monFrame 5s linear 2s infinite alternate;
+animation: monFrame 2s infinite;
     // border: 1px solid red;
   }
 
@@ -20,16 +20,44 @@
       transform: scale(0.2);
     }
     25% {
-      transform: scale(0.4);
+      transform: scale(0.5);
     }
     50% {
-      transform: scale(0.6);
+      transform: scale(1);
     }
     75% {
-      transform: scale(0.8);
+      transform: scale(.5);
     }
     100% {
-      transform: scale(1.1);
+      transform: scale(.2);
     }
+  }
+}
+
+@keyframes heartbeat
+{
+  0%
+  {
+    transform: scale( .75 );
+  }
+  20%
+  {
+    transform: scale( 1 );
+  }
+  40%
+  {
+    transform: scale( .75 );
+  }
+  60%
+  {
+    transform: scale( 1 );
+  }
+  80%
+  {
+    transform: scale( .75 );
+  }
+  100%
+  {
+    transform: scale( .75 );
   }
 }

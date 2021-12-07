@@ -67,8 +67,6 @@ const containerVariants = {
 }
 // 921665
 const About = () => {
-  const inRef = useRef(null)
-  const outRef = useRef(null)
   const [animateAbout, setAnimateAbout] = useState(true)
   const isPageWide = useMediaQuery('(min-width: 769px)')
 
@@ -114,7 +112,9 @@ const About = () => {
                       className="more"
                     >
                       Learn more{' '}
-                      <Img className="img" src={ArrowRight} alt="..." />
+                      <Img           quality="1"
+          unoptimized={true}
+          objectFit="contain" className="img" src={ArrowRight} alt="..." />
                     </span>
                   </p>
                 </motion.div>
@@ -134,12 +134,16 @@ const About = () => {
                   </div>
                   <div className="images">
                     <div className="image">
-                      <Img src={Emoji} alt="..." />
+                      <Img           quality="1"
+          unoptimized={true}
+          objectFit="contain" src={Emoji} alt="..." />
                       <span className="ray">George Ogundeko</span>
                       <span>Creative Director</span>
                     </div>
                     <div className="image">
-                      <Img src={Cranium} alt="..." />
+                      <Img           quality="1"
+          unoptimized={true}
+          objectFit="contain" src={Cranium} alt="..." />
                       <span className="ray">Cranium X</span>
                       <span>Comms Manager</span>
                     </div>
@@ -157,7 +161,9 @@ const About = () => {
                       className="more"
                     >
                       See Less
-                      <Img className="img" src={ArrowLeft} alt="..." />
+                      <Img           quality="1"
+          unoptimized={true}
+          objectFit="contain" className="img" src={ArrowLeft} alt="..." />
                     </span>
                   </p>
                 </div>

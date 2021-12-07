@@ -15,7 +15,7 @@ const topTestimonies = [
   {
     class: 'three',
     image: Testimony1,
-    word: `My music has touched 10 million + people since i released my
+    word: `My music has touched 10 million + people since I released my
            E.p in 2021.`,
     tilt: false,
   },
@@ -36,13 +36,13 @@ const bottomTestimonies = [
   {
     class: 'two',
     image: Testimony4,
-    word: `One of the things i love about my experience is that i got what they promised`,
+    word: `One of the things I love about my experience is that I got what they promised`,
     tilt: false,
   },
   {
     class: 'four',
     image: Testimony5,
-    word: `Besides giving me a good promotion. They believed in my music. It felt great and i would definitely recommend them to independent artists.`,
+    word: `Besides giving me a good promotion. They believed in my music. It felt great and I would definitely recommend them to independent artists.`,
     tilt: false,
   },
   {

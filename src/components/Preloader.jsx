@@ -13,15 +13,23 @@ const buttonVariants = {
 }
 const Preloader = () => {
   return (
-    <motion.div className="Preloader">
-      <motion.div
-        variants={buttonVariants}
-        animate="animate"
-        className="image-container"
+    <div className="Preloader">
+      <div className="image-container"
       >
         <Image src={PRE} alt="..." />
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
+
+
+    //     <motion.div className="Preloader">
+    //   <motion.div
+    //     variants={buttonVariants}
+    //     animate="animate"
+    //     className="image-container"
+    //   >
+    //     <Image src={PRE} alt="..." />
+    //   </motion.div>
+    // </motion.div>
   )
 }
 

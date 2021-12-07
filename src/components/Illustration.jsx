@@ -29,7 +29,7 @@ const Work = () => {
           alt="..."
           quality="1"
           unoptimized={true}
-          objectFit="contain"
+          objectFit="cover"
         />
       </div>
 
@@ -45,6 +45,9 @@ const Work = () => {
           {artisteData.map((data, idx) => (
             <div key={idx} className="talent">
               <Image
+                 quality="1"
+              unoptimized={true}
+              objectFit="contain"
                 className="talent-image"
                 src={data.image}
                 alt={data.name}

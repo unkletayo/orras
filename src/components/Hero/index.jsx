@@ -7,6 +7,7 @@ import { useMediaQuery } from '../../hooks/useMediaQuery'
 import DownArrow from '../../../public/img/down-arrow.svg'
 import Logo from '../../../public/img/hero-logo.png'
 import Artiste from '../../../public/img/Artiste.png'
+import MArtiste from '../../../public/img/martiste.svg'
 
 const containerVariants = {
   hidden: {
@@ -28,7 +29,7 @@ const containerVariants = {
 const vVariants = {
   hidden: {
     opacity: 0,
-    x: '20vw',
+    x: '-20vw',
   },
   visible: {
     opacity: 1,
@@ -51,16 +52,33 @@ const upVariant = {
   },
 }
 
+const hcontainerVariants = {
+  hidden: {
+    opacity: 0,
+    x: '50vw',
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { type: 'spring', delay: 0.1 },
+  },
+  exit: {
+    x: '-50vh',
+    opacity: 1,
+    transition: { ease: 'easeInOut' },
+  },
+}
+
 const Hero = () => {
   const [showIcon, setShowIcon] = useState(false)
   const router = useRouter()
-  const isPageWide = useMediaQuery('(min-width: 768px)')
+  const isPageWide = useMediaQuery('(min-width: 769px)')
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const tick = () => {
     setShowIcon(!showIcon)
   }
   useEffect(() => {
-    const timerID = setInterval(() => tick(), 10000)
+    const timerID = setInterval(() => tick(), 8000)
     return () => {
       clearInterval(timerID)
     }
@@ -71,14 +89,12 @@ const Hero = () => {
       <div className={`heroText`}>
         <AnimatePresence exitBeforeEnter>
           {!showIcon ? (
-            <>
               <motion.div
                 variants={isPageWide ? containerVariants : vVariants}
                 initial="hidden"
                 animate="visible"
                 exit="exit"
                 key="1"
-                div
                 className="other-hero"
               >
                 <div>
@@ -104,7 +120,6 @@ const Hero = () => {
                   </div>
                 </div>
               </motion.div>
-            </>
           ) : (
             <motion.div
               variants={isPageWide ? upVariant : vVariants}
@@ -143,32 +158,36 @@ const Hero = () => {
       </div>
       {!isPageWide && (
         <div className={`heroImage`}>
-          <AnimatePresence>
-            {showIcon ? (
-              <motion.div className="mobile-artiste set">
-                <motion.div
+          <AnimatePresence exitBeforeEnter>
+            {!showIcon ? (
+              <motion.div 
                   showIcon={showIcon}
-                  variants={containerVariants}
+                  variants={hcontainerVariants}
                   initial="hidden"
-                  animate="visible"
+                  animate="visible" 
+                  className="mobile-artiste set">
+                <motion.div
+
                   className="other-hero-image"
                 >
-                  <Image src={Artiste} alt="..." />
+                  {/* <Image src={MArtiste} alt="..." /> */}
                   <div className="spotlight">
                     <Image src={SpotLight} alt="Artiste" />
                   </div>
                 </motion.div>
               </motion.div>
             ) : (
-              <motion.div className="mobile-logo set">
-                <motion.div
+              <motion.div                  
                   showIcon={showIcon}
-                  variants={vVariants}
+                  variants={hcontainerVariants}
                   initial="hidden"
-                  animate="visible"
+                  animate="visible" 
+                  className="mobile-logo set">
+                <motion.div
+ 
                   className="other-hero-image"
                 >
-                  <Image src={Logo} alt="..." />
+                  {/* <Image unoptimized={true} objectFit="contain"  src={Logo} alt="..." /> */}
                 </motion.div>
               </motion.div>
             )}

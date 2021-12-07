@@ -12,6 +12,11 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    
+    font-size: 34px;
+    text-align: left;
+    padding: 0;
+    margin: 10px;
     .line {
       position: relative;
       width: 40%;
@@ -50,10 +55,11 @@
       color: #ffffff;
 
       @include media('<=tablet') {
-        font-size: 34px;
+        font-size: 38px;
         text-align: left;
         padding: 0;
-        margin: 0;
+        line-height: 1.5;
+        margin: 0 2vw;
       }
   }
   .How-cards {

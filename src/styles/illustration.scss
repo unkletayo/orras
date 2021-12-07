@@ -61,6 +61,8 @@
       line-height: 1.5;
       text-align: center;
       color: #ffffff;
+      // padding-left: 30px !important;
+      // border: 1px solid red;
 
       @include media('<=tablet') {
         font-size: 34px;
