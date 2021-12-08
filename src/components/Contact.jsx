@@ -45,7 +45,7 @@ const Contact = () => {
               <span>Start Your</span>
               <span>Journey with us</span>
               <span>
-                <a href="tel:+23475975330">Call</a> or{' '}
+                <a href="tel:+234702691846">Call</a> or{' '}
                 <a href="mailto:info@orras.com">email</a>
               </span>
             </div>

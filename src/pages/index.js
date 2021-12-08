@@ -43,7 +43,7 @@ export default function Home() {
   }, [loading])
   return (
     <div style={{ position: 'relative' }}>
-      <SEO title="Orras.com" />se
+      <SEO title="Orras.com" />
       {loading ? (
         <Preloader />
       ) : (
