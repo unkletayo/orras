@@ -45,6 +45,7 @@ export default function SEO({
   return (
     <Head>
       <title>{title}</title>
+
       {metaData.map(({ name, content }, i) => (
         <meta key={i} name={name} content={content} />
       ))}
