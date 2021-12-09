@@ -12,26 +12,27 @@ import Carousel from 'react-multi-carousel'
 
 const responsive = {
   desktop: {
-    breakpoint: { max: 3000, min: 1619 },
-    items: 4,
-    slidesToSlide: 4, // optional, default to 1.
+    breakpoint: { max: 3000, min: 1337 },
+    items: 6,
+    slidesToSlide: 2, // optional, default to 1.
   },
   laptop: {
-    breakpoint: { max: 1619, min: 1024 },
+    breakpoint: { max: 1336, min: 769 },
     items: 4,
-    slidesToSlide: 3, // optional, default to 1.
+    slidesToSlide: 1, // optional, default to 1.
   },
   tablet: {
-    breakpoint: { max: 1024, min: 640 },
+    breakpoint: { max: 768, min: 426 },
     items: 2,
     slidesToSlide: 2, // optional, default to 1.
   },
   mobile: {
-    breakpoint: { max: 639, min: 0 },
+    breakpoint: { max: 425, min: 0 },
     items: 1,
     slidesToSlide: 1, // optional, default to 1.
   },
 }
+
 
 const carouselItem = {
   ...carouselParams,

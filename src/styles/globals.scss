@@ -39,10 +39,17 @@ a:link {
   box-sizing: border-box;
 }
 
-.react-multiple-carousel__arrow--right {
-  right: 10px !important;
+.react-multiple-carousel__arrow--left {
+  left: 2px !important;
 }
 
+.react-multiple-carousel__arrow--right {
+  right: 0px !important;
+}
+
+
+@include media("<=tablet"){
 .react-multiple-carousel__arrow--left {
-  left: -18px !important;
+  right: -10px !important;
+}
 }
