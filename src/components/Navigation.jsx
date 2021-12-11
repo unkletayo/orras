@@ -11,11 +11,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 import Modal from './Modal'
 
-
 const Navigation = () => {
   const [show, setShow] = useState(false)
-
-
 
   return (
     <div className={'Navigation'}>
@@ -33,11 +30,15 @@ const Navigation = () => {
         <li>
           <Link href="/">
             <a>
-              <Image          
-               quality="1"
-             unoptimized={true}
-             objectFit="contain" 
-          src={Logo} alt="..." />
+              <Image
+                width="80"
+                height="64"
+                quality="1"
+                unoptimized={true}
+                objectFit="contain"
+                src={Logo}
+                alt="..."
+              />
             </a>
           </Link>{' '}
         </li>
@@ -59,7 +60,7 @@ const Navigation = () => {
           <div>
             <Link href="/">
               <a>
-                <Image src={Logo} alt="..." />
+                <Image width="68" height="54" src={Logo} alt="..." />
               </a>
             </Link>
           </div>

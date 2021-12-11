@@ -35,10 +35,15 @@ const Contact = () => {
         <div className="content">
           <div className="content-items">
             <div className="logo-icon">
-              <Image               
-               quality="1"
-             unoptimized={true}
-             objectFit="contain"  src={Logo} alt="logo" />
+              <Image
+                quality="1"
+                unoptimized={true}
+                objectFit="contain"
+                width="91"
+                height="73"
+                src={Logo}
+                alt="logo"
+              />
             </div>
 
             <div className="content-cta">

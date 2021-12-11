@@ -47,9 +47,8 @@ a:link {
   right: 0px !important;
 }
 
-
-@include media("<=tablet"){
-.react-multiple-carousel__arrow--left {
-  right: -10px !important;
-}
+@include media('<=tablet') {
+  .react-multiple-carousel__arrow--left {
+    left: 0px !important;
+  }
 }
