@@ -89,37 +89,37 @@ const Hero = () => {
       <div className={`heroText`}>
         <AnimatePresence exitBeforeEnter>
           {!showIcon ? (
-              <motion.div
-                variants={isPageWide ? containerVariants : vVariants}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-                key="1"
-                className="other-hero"
-              >
-                <div>
-                  <h1>Make The {isPageWide && <br />} World Listen</h1>
-                  <p className="hero-description">
-                    Your talent should not be hidden or sealed away in uncut
-                    videos and unheard songs. It should be enjoyed and
-                    celebrated by as many as possible.
-                  </p>
-                  <button
-                    onClick={() => router.push('/#contact-section')}
-                    className="cta-button"
-                  >
-                    Lets get you out there{' '}
-                    <span>
-                      <Image src={DownArrow} alt="..." />
-                    </span>
-                  </button>
+            <motion.div
+              variants={isPageWide ? containerVariants : vVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              key="1"
+              className="other-hero"
+            >
+              <div>
+                <h1>Make The {isPageWide && <br />} World Listen</h1>
+                <p className="hero-description">
+                  Your talent should not be hidden or sealed away in uncut
+                  videos and unheard songs. It should be enjoyed and celebrated
+                  by as many as possible.
+                </p>
+                <button
+                  onClick={() => router.push('/#contact-section')}
+                  className="cta-button"
+                >
+                  Lets get you out there{' '}
+                  <span>
+                    <Image src={DownArrow} alt="..." />
+                  </span>
+                </button>
+              </div>
+              <div className="other-hero-image pc">
+                <div className="spotlight">
+                  <Image src={SpotLight} alt="Artiste" />
                 </div>
-                <div className="other-hero-image pc">
-                  <div className="spotlight">
-                    <Image src={SpotLight} alt="Artiste" />
-                  </div>
-                </div>
-              </motion.div>
+              </div>
+            </motion.div>
           ) : (
             <motion.div
               variants={isPageWide ? upVariant : vVariants}
@@ -160,16 +160,14 @@ const Hero = () => {
         <div className={`heroImage`}>
           <AnimatePresence exitBeforeEnter>
             {!showIcon ? (
-              <motion.div 
-                  showIcon={showIcon}
-                  variants={hcontainerVariants}
-                  initial="hidden"
-                  animate="visible" 
-                  className="mobile-artiste set">
-                <motion.div
-
-                  className="other-hero-image"
-                >
+              <motion.div
+                showIcon={showIcon}
+                variants={hcontainerVariants}
+                initial="hidden"
+                animate="visible"
+                className="mobile-artiste set"
+              >
+                <motion.div className="other-hero-image">
                   {/* <Image src={MArtiste} alt="..." /> */}
                   <div className="spotlight">
                     <Image src={SpotLight} alt="Artiste" />
@@ -177,16 +175,14 @@ const Hero = () => {
                 </motion.div>
               </motion.div>
             ) : (
-              <motion.div                  
-                  showIcon={showIcon}
-                  variants={hcontainerVariants}
-                  initial="hidden"
-                  animate="visible" 
-                  className="mobile-logo set">
-                <motion.div
- 
-                  className="other-hero-image"
-                >
+              <motion.div
+                showIcon={showIcon}
+                variants={hcontainerVariants}
+                initial="hidden"
+                animate="visible"
+                className="mobile-logo set"
+              >
+                <motion.div className="other-hero-image">
                   {/* <Image unoptimized={true} objectFit="contain"  src={Logo} alt="..." /> */}
                 </motion.div>
               </motion.div>

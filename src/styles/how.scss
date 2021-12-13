@@ -12,7 +12,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    
+
     font-size: 34px;
     text-align: left;
     padding: 0;
@@ -32,7 +32,7 @@
         transform: scaleX(0);
         transition: background 0.4s ease-in;
         opacity: 1;
-        background-image: url('../../public/img/how-strip.svg');
+        background-image: url('../../public/img/Gradientstrip.png');
       }
     }
 
@@ -46,27 +46,27 @@
     }
   }
   .How-header {
-      font-family: 'Tiempos Headline Light', sans-serif;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 36px;
-      line-height: 1.5;
-      text-align: center;
-      color: #ffffff;
+    font-family: 'Tiempos Headline Light', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 1.5;
+    text-align: center;
+    color: #ffffff;
 
-      @include media('<=tablet') {
-        font-size: 38px;
-        text-align: left;
-        padding: 0;
-        line-height: 1.5;
-        margin: 0 2vw;
-      }
+    @include media('<=tablet') {
+      font-size: 38px;
+      text-align: left;
+      padding: 0;
+      line-height: 1.5;
+      margin: 0 2vw;
+    }
   }
   .How-cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
-      margin-top: 50px;
+    margin-top: 50px;
 
     @include media('<=tablet') {
       grid-template-columns: 1fr;

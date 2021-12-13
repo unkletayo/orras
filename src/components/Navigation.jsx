@@ -60,7 +60,13 @@ const Navigation = () => {
           <div>
             <Link href="/">
               <a>
-                <Image width="68" height="54" src={Logo} alt="..." />
+                <Image
+                  unoptimized
+                  // width="68"
+                  // height="54"
+                  src={Logo}
+                  alt="..."
+                />
               </a>
             </Link>
           </div>

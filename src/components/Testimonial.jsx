@@ -42,7 +42,7 @@ const bottomTestimonies = [
   {
     class: 'four',
     image: Testimony5,
-    word: `Besides giving me a good promotion. They believed in my music. It felt great and I would definitely recommend them to independent artists.`,
+    word: `They believed in my music. I would recommend them to independent artists.`,
     tilt: false,
   },
   {
@@ -54,7 +54,7 @@ const bottomTestimonies = [
   {
     class: 'eight',
     image: Testimony7,
-    word: `Ran a successful  campaign with Orras! They're extremely communicative and believe in the music they're working to promote.`,
+    word: `They're extremely communicative and believe in the music they're working to promote.`,
     tilt: false,
   },
 ]
@@ -108,9 +108,9 @@ const TestimonyComponent = ({ testimony }) => {
       </div>
       {show && (
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+          initial={{ opacity: 0,  }}
+          animate={{ opacity: 1, scale:1, x: 5, y:7  }}
+          exit={{ opacity: 0, scale:0.4, x:0, y:20, }}
           transition={{ duration: 0.4 }}
           className={`Testimony-statement ${testimony.tilt ? 'left' : 'right'}`}
         >

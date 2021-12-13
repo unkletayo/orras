@@ -37,10 +37,8 @@ const Contact = () => {
             <div className="logo-icon">
               <Image
                 quality="1"
-                unoptimized={true}
-                objectFit="contain"
-                width="91"
-                height="73"
+                // unoptimized={true}
+                // objectFit="contain"
                 src={Logo}
                 alt="logo"
               />
