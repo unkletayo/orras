@@ -37,6 +37,7 @@ const Contact = () => {
             <div className="logo-icon">
               <Image
                 quality="1"
+                fixed
                 // unoptimized={true}
                 // objectFit="contain"
                 src={Logo}

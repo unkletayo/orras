@@ -109,7 +109,7 @@ const TestimonyComponent = ({ testimony }) => {
       {show && (
         <motion.div
           initial={{ opacity: 0,  }}
-          animate={{ opacity: 1, scale:1, x: 5, y:7  }}
+          animate={{ opacity: 1, scale:1, x: 5, y:7,   }}
           exit={{ opacity: 0, scale:0.4, x:0, y:20, }}
           transition={{ duration: 0.4 }}
           className={`Testimony-statement ${testimony.tilt ? 'left' : 'right'}`}

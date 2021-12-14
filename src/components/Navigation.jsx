@@ -31,10 +31,9 @@ const Navigation = () => {
           <Link href="/">
             <a>
               <Image
-                width="80"
-                height="64"
-                quality="1"
-                unoptimized={true}
+                // width="80"
+                // height="64"
+              fixed
                 objectFit="contain"
                 src={Logo}
                 alt="..."
@@ -83,7 +82,7 @@ const Navigation = () => {
           <div className="logo">
             <Link href="/">
               <a onClick={() => setShow((prev) => !prev)}>
-                <Image unoptimized src={Logo} alt="..." />
+                <Image fixed src={Logo} alt="..." />
               </a>
             </Link>
           </div>
