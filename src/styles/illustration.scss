@@ -22,7 +22,7 @@
       flex-direction: column;
       .line {
         position: relative;
-        width: 25%;
+        width: 30%;
 
         &::after {
           position: absolute;
@@ -50,6 +50,14 @@
 
       @include media('<=tablet') {
         flex-direction: row;
+      }
+
+      @include media('<=tablet') {
+        padding: 0 9%;
+        display: block;
+        .line {
+          width: 89%;
+        }
       }
     }
 
