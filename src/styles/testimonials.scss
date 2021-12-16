@@ -47,7 +47,7 @@
     gap: 10px;
     grid-template-columns: repeat(9, 1fr);
     grid-template-rows: 1fr;
-    margin-top:30px;
+    margin-top: 30px;
 
     @include media('<=tablet') {
       grid-template-areas:
@@ -102,39 +102,22 @@
 
     .Testimony-statement {
       position: absolute;
-      border-radius: 30px;
       font-family: 'Gotham', sans-serif;
       font-style: normal;
       font-weight: normal;
       color: #000000;
       min-width: 200px;
-      width:100%;
+      width: 100%;
       top: 0px;
-      padding: 5px 15px;
-      background: url('../../public/img/bubble.svg');
-      background-repeat: no-repeat;
-      background-size: contain;
+      right: 0;
+      top: -20px;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      // background-position: 20px right;
-      p{
-    //     color:red;
-            margin-block-start: 0em;
-    margin-block-end: 0em;
-    margin:.25rem;
-        padding: 0.4rem;
-    //     padding-top:0;
-    //     padding-bottom:0;
-      }
+      justify-content: flex-end;
 
       &.left {
         right: -150px;
         @include media('<=tablet') {
           left: -150px;
-          background: url('../../public/img/bubble2.svg');
-          background-repeat: no-repeat;
-          background-size: contain;
         }
       }
 
@@ -145,10 +128,59 @@
         }
       }
 
-      .vector{
-        padding:5px 10px;
-     font-size: 11px;
-      line-height: 0.97;
+      .vector-cover {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        p {
+          background: #fff;
+          margin-block-start: 0em;
+          margin-block-end: 0em;
+          // margin: 0.1rem;
+          padding: 20px 10px;
+          min-height: 30px;
+          border-radius: 30px;
+          width: 90%;
+          position: relative;
+          // text-align:center;
+          line-height:1.2;
+          // transform:scale(.95);
+
+          &::before {
+             content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 24px solid #fff;
+  border-right: 12px solid transparent;
+  border-top: 12px solid #fff;
+  border-bottom: 20px solid transparent;
+  left: 32px;
+  bottom: -24px;
+  transform-origin: center center;
+  transform:scale(.7);
+  transform: rotate(15deg);
+          }
+                      &.left{
+
+                      
+             &::before {
+                   @include media('<=tablet') {
+                     left:70%;
+               transform: rotate(65deg);
+    }
+
+              //  right:32%;
+             }
+          }
+        }
+
+        .vector {
+          // padding: 5px 10px;
+          font-size: 11px;
+          line-height: 0.97;
+        }
       }
     }
   }

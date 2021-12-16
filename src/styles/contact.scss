@@ -32,7 +32,7 @@
   &-info {
     max-width: 500px;
     text-align: center;
-    margin:  0;
+    margin: 0;
     margin-bottom: 30px;
     line-height: 1.5;
     font-size: 18px;
@@ -42,11 +42,13 @@
   &-button {
     button {
       display: flex;
+      font-family: 'Gotham', sans-serif;
       align-items: center;
       justify-content: center;
       border: 1px solid #fff;
       padding: 10px 20px;
       cursor: pointer;
+      vertical-align: middle;
       position: relative;
       background: transparent;
       color: white;

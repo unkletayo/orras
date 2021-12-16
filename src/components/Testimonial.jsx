@@ -65,6 +65,49 @@ const Testimonial = () => {
     closed: { opacity: 0, x: '-100%' },
   }
 
+  const h = topTestimonies.map(item=> {
+    return{...item, bub:Bubble, show:false}
+  })
+
+  const y = bottomTestimonies.map(item=> {
+    return{...item, bub:Bubble, show:false}
+  })
+
+  const handleShow1 = (tes) => {
+    setLowerArr(y)
+    setUpperArr(prev => (
+      prev.map(item => {
+      if(item.class === tes.class){
+        return {...item, show:true}
+      } else{
+        return {...item, show:false}
+      }
+    })
+    ))
+  }
+
+    const handleShow2 = (tes) => {
+      setUpperArr(h)
+    setLowerArr(prev => (
+      prev.map(item => {
+      if(item.class===tes.class){
+        return {...item, show:true}
+      } else{
+        return {...item, show:false}
+      }
+    })
+    ))
+  }
+
+  const resetArr = () => {
+      setUpperArr(h)
+       setLowerArr(y)    
+  }
+
+  const [upperArr, setUpperArr] = useState(h)
+  const [lowerArr, setLowerArr] = useState(y)
+
+
   return (
     <div className="Testimonials">
       <div className="Testimonials-Header">
@@ -73,15 +116,15 @@ const Testimonial = () => {
 
       <AnimatePresence>
         <div className="Testimonials-feeds">
-          {topTestimonies?.map((testimony, index) => (
-            <TestimonyComponent key={index} testimony={testimony} />
+          {upperArr?.map((testimony, index) => (
+            <TestimonyComponent reset={resetArr} key={index} handleShow={handleShow1} testimony={testimony} />
           ))}
         </div>
       </AnimatePresence>
 
       <div className="Testimonials-feed">
-        {bottomTestimonies?.map((testimony, index) => (
-          <TestimonyComponent key={index} testimony={testimony} />
+        {lowerArr?.map((testimony, index) => (
+          <TestimonyComponent reset={resetArr} key={index} handleShow={handleShow2} testimony={testimony} />
         ))}
       </div>
     </div>
@@ -90,37 +133,65 @@ const Testimonial = () => {
 
 export default Testimonial
 
-const TestimonyComponent = ({ testimony }) => {
-  const [show, setShow] = useState(false)
+const TestimonyComponent = ({ testimony, reset, handleShow }) => {
+  const [item, setItem] = useState(testimony)
 
   return (
     <div
       key={testimony.class}
-      onMouseLeave={() => setShow(false)}
+      onMouseLeave={reset}
       className={`Testimony ${testimony.class}`}
     >
       <Image src={testimony.image} alt="..." />
       <div
-        onClick={() => setShow((prev) => !prev)}
+        onClick={() => handleShow(testimony)}
         className="Testimony-banner"
       >
-        {!show && <Image src={Bubble} alt="..." />}
+        {!testimony.show && <Image src={testimony.bub} alt="..." />}
       </div>
-      {show && (
+      {testimony.show && (
         <motion.div
-          initial={{ opacity: 0,  }}
-          animate={{ opacity: 1, scale:1, x: 5, y:7,   }}
-          exit={{ opacity: 0, scale:0.4, x:0, y:20, }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, scale: 1, x: 5, y: 7 }}
+          exit={{ opacity: 0, scale: 0.4, x: 0, y: 20 }}
           transition={{ duration: 0.4 }}
           className={`Testimony-statement ${testimony.tilt ? 'left' : 'right'}`}
         >
           <div className="vector-cover">
             <div className="vector">
-              <p>{testimony.word}</p>
+              <p className={`${testimony.tilt ? 'left' : 'right'}`}>{testimony.word}</p>
             </div>
           </div>
         </motion.div>
       )}
     </div>
   )
+}
+
+const UpperTes = () => {
+   const h = topTestimonies.map(item=> {
+    return{...item, bub:Bubble, show:false}
+  })
+
+  const y = bottomTestimonies.map(item=> {
+    return{...item, bub:Bubble, show:false}
+  })
+
+  const handleShow = (tes) => {
+   return arr = arr.map(item => {
+      if(item.class===tes.class){
+        return {...item, show:true}
+      } else{
+        return item
+      }
+    })
+  }
+  
+  return
+  (  <div className="Testimonials-feeds">
+          {h?.map((testimony, index) => (
+            <TestimonyComponent arr={h} key={index} handleShow={handleShow} testimony={testimony} />
+          ))}
+  </div>
+)  
 }
