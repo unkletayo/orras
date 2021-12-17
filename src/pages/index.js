@@ -17,7 +17,7 @@ export default function Home() {
           <br />
           Coming Soon
         </h1>
-        <Timer />
+        {/* <Timer /> */}
         {/* <Optin /> */}
         <Preloader />
       </div>
