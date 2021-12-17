@@ -122,14 +122,16 @@
       &.left {
         right: -150px;
         @include media('<=tablet') {
-          left: -150px;
+      top: -30px;
+          left: -130px;
         }
       }
 
       &.right {
         right: -150px;
         @include media('<=tablet') {
-          right: -150px;
+          right: -130px;
+          top:-30px;
         }
       }
 
