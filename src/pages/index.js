@@ -47,7 +47,7 @@ export default function Home() {
       {loading ? (
         <Preloader />
       ) : (
-        <>
+        <div className="page-container">
           <Navigation />
           <Hero />
           <About />
@@ -57,7 +57,7 @@ export default function Home() {
           <Slides />
           <Contact />
           <Footer />
-        </>
+        </div>
       )}
     </div>
   )

@@ -41,7 +41,8 @@
     flex: 1;
     @include media('<=tablet') {
       padding: 0 9%;
-      padding-top: 100px;
+      // padding-top: 100px;
+      padding-top: 140px;
     }
     h1 {
       font-family: 'Tiempos Headline Light', sans-serif;
