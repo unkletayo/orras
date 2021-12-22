@@ -15,7 +15,7 @@ export default function Home() {
         <h1>
           ORRAS
           <br />
-          Coming Soon
+          Coming Soon ...
         </h1>
         {/* <Timer /> */}
         {/* <Optin /> */}
