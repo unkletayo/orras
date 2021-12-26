@@ -103,6 +103,9 @@
       right: -10px;
       bottom: 3px;
       cursor: pointer;
+      @include media('>=tablet', '<=1000px') {
+        transform: scale(0.6);
+      }
     }
 
     .Testimony-statement {
@@ -119,19 +122,50 @@
       display: flex;
       justify-content: flex-end;
 
-      &.left {
-        right: -150px;
-        @include media('<=tablet') {
-      top: -30px;
-          left: -130px;
+      @include media('>=500px') {
+        &.left {
+          right: -150px;
+          @include media('>=500px', '<=tablet') {
+            top: -20px;
+            left: -130px;
+          }
+        }
+
+        &.right {
+          right: -150px;
+          @include media('>=500px', '<=tablet') {
+            right: -130px;
+            top: -20px;
+          }
         }
       }
 
-      &.right {
-        right: -150px;
-        @include media('<=tablet') {
-          right: -130px;
-          top:-30px;
+      @include media('<500px') {
+        &.left {
+          // right: -65%;
+          @include media('<500px') {
+            top: -40%;
+            right: 0%;
+          }
+
+          @include media('<=400px') {
+            top: -40px;
+            right: 20%;
+          }
+        }
+
+        &.right {
+          // right: -150px;
+          // right: -65%;
+          @include media('<500px') {
+            right: -120%;
+            top: -40%;
+          }
+
+          @include media('<=400px') {
+            right: -150%;
+            top: -40%;
+          }
         }
       }
 

@@ -1,4 +1,7 @@
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState } from 'react'
 import Image from 'next/image'
+import { useMediaQuery } from '../hooks/useMediaQuery'
 import Testimony1 from '../../public/img/testimonial-1.png'
 import Testimony2 from '../../public/img/testimonial-2.png'
 import Testimony3 from '../../public/img/testimonial-3.png'
@@ -8,8 +11,6 @@ import Testimony6 from '../../public/img/testimonial-6.png'
 import Testimony7 from '../../public/img/testimonial-7.png'
 import Bubble from '../../public/img/bubble.png'
 import vector from '../../public/img/bubble.svg'
-import { motion, AnimatePresence } from 'framer-motion'
-import { useState } from 'react'
 
 const topTestimonies = [
   {
@@ -65,48 +66,47 @@ const Testimonial = () => {
     closed: { opacity: 0, x: '-100%' },
   }
 
-  const h = topTestimonies.map(item=> {
-    return{...item, bub:Bubble, show:false}
+  const h = topTestimonies.map((item) => {
+    return { ...item, bub: Bubble, show: false }
   })
 
-  const y = bottomTestimonies.map(item=> {
-    return{...item, bub:Bubble, show:false}
+  const y = bottomTestimonies.map((item) => {
+    return { ...item, bub: Bubble, show: false }
   })
 
   const handleShow1 = (tes) => {
     setLowerArr(y)
-    setUpperArr(prev => (
-      prev.map(item => {
-      if(item.class === tes.class){
-        return {...item, show:true}
-      } else{
-        return {...item, show:false}
-      }
-    })
-    ))
+    setUpperArr((prev) =>
+      prev.map((item) => {
+        if (item.class === tes.class) {
+          return { ...item, show: true }
+        } else {
+          return { ...item, show: false }
+        }
+      })
+    )
   }
 
-    const handleShow2 = (tes) => {
-      setUpperArr(h)
-    setLowerArr(prev => (
-      prev.map(item => {
-      if(item.class===tes.class){
-        return {...item, show:true}
-      } else{
-        return {...item, show:false}
-      }
-    })
-    ))
+  const handleShow2 = (tes) => {
+    setUpperArr(h)
+    setLowerArr((prev) =>
+      prev.map((item) => {
+        if (item.class === tes.class) {
+          return { ...item, show: true }
+        } else {
+          return { ...item, show: false }
+        }
+      })
+    )
   }
 
   const resetArr = () => {
-      setUpperArr(h)
-       setLowerArr(y)    
+    setUpperArr(h)
+    setLowerArr(y)
   }
 
   const [upperArr, setUpperArr] = useState(h)
   const [lowerArr, setLowerArr] = useState(y)
-
 
   return (
     <div className="Testimonials">
@@ -117,14 +117,24 @@ const Testimonial = () => {
       <AnimatePresence>
         <div className="Testimonials-feeds">
           {upperArr?.map((testimony, index) => (
-            <TestimonyComponent reset={resetArr} key={index} handleShow={handleShow1} testimony={testimony} />
+            <TestimonyComponent
+              reset={resetArr}
+              key={index}
+              handleShow={handleShow1}
+              testimony={testimony}
+            />
           ))}
         </div>
       </AnimatePresence>
 
       <div className="Testimonials-feed">
         {lowerArr?.map((testimony, index) => (
-          <TestimonyComponent reset={resetArr} key={index} handleShow={handleShow2} testimony={testimony} />
+          <TestimonyComponent
+            reset={resetArr}
+            key={index}
+            handleShow={handleShow2}
+            testimony={testimony}
+          />
         ))}
       </div>
     </div>
@@ -134,8 +144,7 @@ const Testimonial = () => {
 export default Testimonial
 
 const TestimonyComponent = ({ testimony, reset, handleShow }) => {
-  const [item, setItem] = useState(testimony)
-
+  const isPageWide = useMediaQuery('(min-width: 769px)')
   return (
     <div
       key={testimony.class}
@@ -143,10 +152,7 @@ const TestimonyComponent = ({ testimony, reset, handleShow }) => {
       className={`Testimony ${testimony.class}`}
     >
       <Image src={testimony.image} alt="..." />
-      <div
-        onClick={() => handleShow(testimony)}
-        className="Testimony-banner"
-      >
+      <div onClick={() => handleShow(testimony)} className="Testimony-banner">
         {!testimony.show && <Image src={testimony.bub} alt="..." />}
       </div>
       {testimony.show && (
@@ -159,7 +165,9 @@ const TestimonyComponent = ({ testimony, reset, handleShow }) => {
         >
           <div className="vector-cover">
             <div className="vector">
-              <p className={`${testimony.tilt ? 'left' : 'right'}`}>{testimony.word}</p>
+              <p className={`${testimony.tilt ? 'left' : 'right'}`}>
+                {testimony.word}
+              </p>
             </div>
           </div>
         </motion.div>
@@ -169,29 +177,33 @@ const TestimonyComponent = ({ testimony, reset, handleShow }) => {
 }
 
 const UpperTes = () => {
-   const h = topTestimonies.map(item=> {
-    return{...item, bub:Bubble, show:false}
+  const h = topTestimonies.map((item) => {
+    return { ...item, bub: Bubble, show: false }
   })
 
-  const y = bottomTestimonies.map(item=> {
-    return{...item, bub:Bubble, show:false}
+  const y = bottomTestimonies.map((item) => {
+    return { ...item, bub: Bubble, show: false }
   })
 
   const handleShow = (tes) => {
-   return arr = arr.map(item => {
-      if(item.class===tes.class){
-        return {...item, show:true}
-      } else{
+    return (arr = arr.map((item) => {
+      if (item.class === tes.class) {
+        return { ...item, show: true }
+      } else {
         return item
       }
-    })
+    }))
   }
-  
+
   return
-  (  <div className="Testimonials-feeds">
-          {h?.map((testimony, index) => (
-            <TestimonyComponent arr={h} key={index} handleShow={handleShow} testimony={testimony} />
-          ))}
+  ;<div className="Testimonials-feeds">
+    {h?.map((testimony, index) => (
+      <TestimonyComponent
+        arr={h}
+        key={index}
+        handleShow={handleShow}
+        testimony={testimony}
+      />
+    ))}
   </div>
-)  
 }
