@@ -98,7 +98,7 @@ const Hero = () => {
               className="other-hero"
             >
               <div>
-                <h1>Make The {isPageWide && <br />} World Listen</h1>
+                <h1>Make The World Listen</h1>
                 <p className="hero-description">
                   Your talent should not be hidden or sealed away in uncut
                   videos and unheard songs. It should be enjoyed and celebrated
