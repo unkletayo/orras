@@ -1,7 +1,9 @@
 import Head from 'next/head'
+import Img from 'next/image'
 import Timer from '../components/Countdown/Timer'
 // import Optin from '../components/Optin/Optin'
 import Preloader from '../components/Preloader/Preloader'
+import Logo from '../../public/img/logo.png'
 
 export default function Home() {
   return (
@@ -12,9 +14,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="container">
+      <div className="image-ff">
+      
+      <Img  height="150px" width="150px" fixed  alt="..." src={Logo}/>
+      </div>
         <h1>
-          ORRAS
-          <br />
           Coming Soon ...
         </h1>
         {/* <Timer /> */}
