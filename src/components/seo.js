@@ -1,14 +1,14 @@
-import React from 'react';
-import Head from 'next/head';
+import React from 'react'
+import Head from 'next/head'
 
 export default function SEO({
   description = 'Dedicated to promoting ambitious musical talents to a larger audience across the world.',
   author = '@orras_ent',
-  country="NG",
+  country = 'NG',
   meta,
   title = 'Orras Enterntainment Website',
-  keywords= "Orras Entertainment, music label, record label",
-  site_name="orras.com"
+  keywords = 'Orras Entertainment, music label, record label',
+  site_name = 'orras.com',
 }) {
   const metaData = [
     {
@@ -17,7 +17,7 @@ export default function SEO({
     },
     {
       name: `keywords`,
-      content: description,
+      content: keywords,
     },
     {
       property: `og:site_name`,
@@ -55,8 +55,8 @@ export default function SEO({
       name: `twitter:app:country`,
       content: country,
     },
-  ].concat(meta);
-  
+  ].concat(meta)
+
   return (
     <Head>
       <title>{title}</title>
@@ -65,10 +65,10 @@ export default function SEO({
         <meta key={i} name={name} content={content} />
       ))}
     </Head>
-  );
+  )
 }
 
 SEO.defaultProps = {
   lang: `en`,
   meta: [],
-};
+}

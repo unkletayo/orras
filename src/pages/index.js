@@ -38,12 +38,12 @@ export default function Home() {
     if (loading) {
       setTimeout(() => {
         setLoading(false)
-      }, 2000)
+      }, 1500)
     }
   }, [loading])
   return (
     <div style={{ position: 'relative' }}>
-      <SEO title="Orras.com - Make The World Listen" />
+      <SEO title="Orras - Make The World Listen" />
       {loading ? (
         <Preloader />
       ) : (
